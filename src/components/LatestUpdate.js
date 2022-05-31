@@ -240,13 +240,13 @@ const LatestUpdate = () => {
           <div className="line"> </div>
 
           <Row className="pt-2">
-            <Col md={16}>
+            <Col md={15}>
               <h6>Marina Sherif</h6>
 
               <p className="f-12 grey-color">Editor Bloomberg June 24, 2021</p>
             </Col>
 
-            <Col md={8}>
+            <Col md={9}>
               <div className="pt-2 ">
                 <img src={smallRect} alt="market" className="image-fit" />
               </div>
@@ -256,13 +256,13 @@ const LatestUpdate = () => {
           <div className="line pt-2"> </div>
 
           <Row className="pt-2">
-            <Col md={16}>
+            <Col md={15}>
               <h6>Marina Sherif</h6>
 
               <p className="f-12 grey-color">Editor Bloomberg June 24, 2021</p>
             </Col>
 
-            <Col md={8}>
+            <Col md={9}>
               <div className="pt-2 ">
                 <img src={smallRect} alt="market" className="image-fit" />
               </div>
@@ -272,13 +272,13 @@ const LatestUpdate = () => {
           <div className="line pt-2"> </div>
 
           <Row className="pt-2">
-            <Col md={16}>
+            <Col md={15}>
               <h6>Marina Sherif</h6>
 
               <p className="f-12 grey-color">Editor Bloomberg June 24, 2021</p>
             </Col>
 
-            <Col md={8}>
+            <Col md={9}>
               <div className="pt-2 ">
                 <img src={smallRect} alt="market" className="image-fit" />
               </div>
@@ -288,13 +288,13 @@ const LatestUpdate = () => {
           <div className="line pt-2"> </div>
 
           <Row className="pt-2">
-            <Col md={16}>
+            <Col md={15}>
               <h6>Marina Sherif</h6>
 
               <p className="f-12 grey-color">Editor Bloomberg June 24, 2021</p>
             </Col>
 
-            <Col md={8}>
+            <Col md={9}>
               <div className="pt-2 ">
                 <img src={smallRect} alt="market" className="image-fit" />
               </div>
@@ -304,47 +304,15 @@ const LatestUpdate = () => {
           <div className="line pt-2"> </div>
 
           <Row className="pt-2">
-            <Col md={16}>
+            <Col md={15}>
               <h6>Marina Sherif</h6>
 
               <p className="f-12 grey-color">Editor Bloomberg June 24, 2021</p>
             </Col>
 
-            <Col md={8}>
+            <Col md={9}>
               <div className="pt-2 ">
-                <img src={smallRect} alt="market" />
-              </div>
-            </Col>
-          </Row>
-
-          <div className="line pt-2"> </div>
-
-          <Row className="pt-2">
-            <Col md={16}>
-              <h6>Marina Sherif</h6>
-
-              <p className="f-12 grey-color">Editor Bloomberg June 24, 2021</p>
-            </Col>
-
-            <Col md={8}>
-              <div className="pt-2 ">
-                <img src={smallRect} alt="market" />
-              </div>
-            </Col>
-          </Row>
-
-          <div className="line pt-2"> </div>
-
-          <Row className="pt-2">
-            <Col md={16}>
-              <h6>Marina Sherif</h6>
-
-              <p className="f-12 grey-color">Editor Bloomberg June 24, 2021</p>
-            </Col>
-
-            <Col md={8}>
-              <div className="pt-2 ">
-                <img src={smallRect} alt="market" />
+                <img src={smallRect} alt="market" className="image-fit" />
               </div>
             </Col>
           </Row>

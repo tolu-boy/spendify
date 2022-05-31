@@ -11,11 +11,11 @@ const Login = () => {
   return (
     <div>
       <Row>
-        <Col md={14}>
+        <Col md={12}>
           <LatestUpdate />
         </Col>
 
-        <Col md={10} className="grey-background">
+        <Col md={12} xs={24} sm={24} className="grey-background">
           <section className="login-section">
             <Row className="m-20">
               <Col md={6}>

@@ -24,11 +24,11 @@ const SignUp = () => {
   return (
     <div>
       <Row>
-        <Col md={14}>
+        <Col md={12}>
           <LatestUpdate />
         </Col>
 
-        <Col md={10} className="grey-background">
+        <Col md={12} xs={24} sm={24} className="grey-background">
           <section className="login-section">
             <Row className="m-20">
               <Col md={6}>
@@ -174,20 +174,17 @@ const SignUp = () => {
 
                     <Form.Item className="pt-2">
                       <Button htmlType="submit" block className="form-button">
-                        Login
+                        Sign Up
                       </Button>
                     </Form.Item>
                     <Row>
                       <Col md={24} className="text-center">
                         <Form.Item>
                           <p className="f-12">
-                            By creating account You agree to the{" "}
-                            <span className="purple-color">Terms of use </span>{" "}
+                            By creating account You agree to the
+                            <span className="purple-color">Terms of use </span>
                             and
-                            <span className="purple-color">
-                              {" "}
-                              Privacy Policy
-                            </span>
+                            <span className="purple-color">Privacy Policy</span>
                           </p>
                         </Form.Item>
                       </Col>

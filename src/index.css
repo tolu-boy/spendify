@@ -101,7 +101,7 @@ li {
 }
 
 .latest-update {
-  padding: 25px 42px 0px 42px;
+  padding: 25px 22px 0px 22px;
 }
 
 div.orange-line {
@@ -121,7 +121,7 @@ div.orange-line {
 .login-section {
   padding-top: 188px;
   /* margin: 0 50%; */
-  padding: 188px 10% 0 10%;
+  padding: 188px 20% 0 20%;
 }
 
 .line2 {
@@ -153,6 +153,17 @@ div.orange-line {
 .ant-input-affix-wrapper > input.ant-input {
   padding: 9px;
   border-radius: 4px;
+}
+
+.ant-input-group .ant-input {
+  padding: 9px;
+}
+
+.ant-table-tbody > tr > td,
+.ant-table-thead > tr > th,
+.ant-table tfoot > tr > td,
+.ant-table tfoot > tr > th {
+  padding: 10px;
 }
 
 .form-button {
