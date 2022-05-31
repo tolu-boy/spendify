@@ -34,7 +34,7 @@ const Login = () => {
 
             <Row className="pt-10">
               <Col md={24}>
-                <Card>
+                <Card bordered={false}>
                   <h6>Login</h6>
                   <Form name="normal_login" initialValues={{ remember: true }}>
                     <Form.Item

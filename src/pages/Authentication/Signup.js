@@ -47,7 +47,7 @@ const SignUp = () => {
 
             <Row className="pt-10">
               <Col md={24}>
-                <Card>
+                <Card bordered={false}>
                   <h6>Sign Up</h6>
                   <Form name="normal_login" initialValues={{ remember: true }}>
                     <Row gutter={16}>

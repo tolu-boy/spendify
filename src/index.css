@@ -196,3 +196,12 @@ div.orange-line {
   line-height: 16px;
   cursor: pointer;
 }
+
+
+
+.ant-card-body{
+background: #FFFFFF;
+box-shadow: 0px 4px 14px rgb(0 0 0 / 10%);
+ border-radius: 4px;
+  }
+  
