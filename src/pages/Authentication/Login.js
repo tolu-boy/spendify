@@ -1,11 +1,13 @@
 import React from "react";
 import { Row, Col, Button, Form, Input, Card } from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
-
 import logo from "../../images/logo.svg";
 import LatestUpdate from "../../components/LatestUpdate";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Row>
@@ -75,7 +77,12 @@ const Login = () => {
                         <Form.Item>
                           <p>
                             New here?
-                            <span className="purple-color span-singup">
+                            <span
+                              className="purple-color span-singup"
+                              onClick={() => {
+                                navigate("/signup");
+                              }}
+                            >
                               Sign Up
                             </span>
                           </p>

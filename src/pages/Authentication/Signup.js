@@ -1,16 +1,16 @@
 import React from "react";
 import { Row, Col, Button, Form, Input, Card, Select } from "antd";
 import { LockOutlined, MailOutlined, UserOutlined } from "@ant-design/icons";
-
 import logo from "../../images/logo.svg";
 import company from "../../images/company.svg";
 import website from "../../images/www.svg";
-
 import LatestUpdate from "../../components/LatestUpdate";
 import { Icon } from "@ant-design/compatible";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const { Option } = Select;
+  const navigate = useNavigate();
 
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
@@ -53,11 +53,11 @@ const SignUp = () => {
                     <Row gutter={16}>
                       <Col md={24}>
                         <Form.Item
-                          name="username"
+                          name="email"
                           rules={[
                             {
                               required: true,
-                              message: "Please input your Username!",
+                              message: "Please input your Email!",
                             },
                           ]}
                         >
@@ -172,7 +172,7 @@ const SignUp = () => {
                       </Col>
                     </Row>
 
-                    <Form.Item>
+                    <Form.Item className="pt-2">
                       <Button htmlType="submit" block className="form-button">
                         Login
                       </Button>
@@ -194,9 +194,13 @@ const SignUp = () => {
 
                       <Col md={24}>
                         <p className="text-center">
-                          Have an account?{" "}
-                          <span className="purple-color span-singup">
-                            {" "}
+                          Have an account?
+                          <span
+                            className="purple-color span-singup"
+                            onClick={() => {
+                              navigate("/");
+                            }}
+                          >
                             Login
                           </span>
                         </p>
