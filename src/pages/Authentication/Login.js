@@ -2,7 +2,6 @@ import React from "react";
 import { Row, Col, Button, Form, Input, Card } from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import logo from "../../images/logo.svg";
-import LatestUpdate from "../../components/LatestUpdate";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -10,27 +9,18 @@ const Login = () => {
 
   return (
     <div>
-      <Row>
-        <Col md={12}>
-          <LatestUpdate />
-        </Col>
-
-        <Col md={12} xs={24} sm={24} className="grey-background">
-          <section className="login-section">
-            <Row className="m-20">
-              <Col md={6}>
+      <section className="login-section">
+      <Row className="m-20">
+              <Col md={5}>
                 <img src={logo} alt="logo" />
               </Col>
 
-              <Col md={17}>
-                <Row>
-                  <Col md={20}>
+              <Col md={15}>
                     <li className="login-header line2 "> MySpendify</li>
                     <li className="analytics">ANALYTICS</li>
-                  </Col>
-                </Row>
               </Col>
             </Row>
+
 
             <Row className="pt-10">
               <Col md={24}>
@@ -83,7 +73,7 @@ const Login = () => {
                                 navigate("/signup");
                               }}
                             >
-                              Sign Up
+                               Sign Up
                             </span>
                           </p>
                         </Form.Item>
@@ -93,9 +83,11 @@ const Login = () => {
                 </Card>
               </Col>
             </Row>
-          </section>
-        </Col>
-      </Row>
+
+            
+      </section>
+
+
     </div>
   );
 };

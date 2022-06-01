@@ -4,7 +4,6 @@ import { LockOutlined, MailOutlined, UserOutlined } from "@ant-design/icons";
 import logo from "../../images/logo.svg";
 import company from "../../images/company.svg";
 import website from "../../images/www.svg";
-import LatestUpdate from "../../components/LatestUpdate";
 import { Icon } from "@ant-design/compatible";
 import { useNavigate } from "react-router-dom";
 
@@ -23,27 +22,18 @@ const SignUp = () => {
 
   return (
     <div>
-      <Row>
-        <Col md={12}>
-          <LatestUpdate />
-        </Col>
-
-        <Col md={12} xs={24} sm={24} className="grey-background">
-          <section className="login-section">
-            <Row className="m-20">
-              <Col md={6}>
+      <section className="login-section">
+      <Row className="m-20">
+              <Col md={5}>
                 <img src={logo} alt="logo" />
               </Col>
 
-              <Col md={17}>
-                <Row>
-                  <Col md={20}>
+              <Col md={15}>
                     <li className="login-header line2 "> MySpendify</li>
                     <li className="analytics">ANALYTICS</li>
-                  </Col>
-                </Row>
               </Col>
             </Row>
+
 
             <Row className="pt-10">
               <Col md={24}>
@@ -207,9 +197,7 @@ const SignUp = () => {
                 </Card>
               </Col>
             </Row>
-          </section>
-        </Col>
-      </Row>
+      </section>
     </div>
   );
 };

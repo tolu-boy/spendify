@@ -119,9 +119,9 @@ div.orange-line {
 }
 
 .login-section {
-  padding-top: 188px;
-  /* margin: 0 50%; */
-  padding: 188px 20% 0 20%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin: 0 33%;
 }
 
 .line2 {
