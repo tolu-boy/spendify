@@ -1,7 +1,7 @@
 import React from "react";
-import { Row, Col, Button, Form, Input, Card } from "antd";
+import { Row, Col, Button, Form, Input, Card ,Image} from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
-import logo from "../../images/logo.svg";
+import logo from "../../images/logo2.png";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -11,8 +11,12 @@ const Login = () => {
     <div>
       <section className="login-section">
       <Row className="m-20">
-              <Col md={5}>
-                <img src={logo} alt="logo" />
+              <Col md={6}>
+                <Image 
+                src={logo}
+                preview ={false}
+                width={73}
+                 />
               </Col>
 
               <Col md={15}>
