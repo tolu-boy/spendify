@@ -72,7 +72,7 @@ const Login = () => {
                           <p>
                             New here?
                             <span
-                              className="purple-color span-singup"
+                              className="purple-color span-singup pl-2"
                               onClick={() => {
                                 navigate("/signup");
                               }}

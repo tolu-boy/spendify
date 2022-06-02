@@ -188,7 +188,7 @@ const SignUp = () => {
                         <p className="text-center">
                           Have an account?
                           <span
-                            className="purple-color span-singup"
+                            className="purple-color span-singup pl-2"
                             onClick={() => {
                               navigate("/");
                             }}
