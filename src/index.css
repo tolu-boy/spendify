@@ -71,7 +71,11 @@ li {
 }
 
 .pb-25 {
-  padding-bottom: 72px;
+  padding-bottom: 92px;
+}
+
+.pb-4 {
+  padding-bottom: 4%;
 }
 
 .pt-5 {
@@ -113,12 +117,20 @@ li {
   margin-top: 2%;
 }
 
+.mtN15 {
+  margin-top: -15px;
+}
+
 .f-12 {
   font-size: 12px;
 }
 
 .f-14 {
   font-size: 14px;
+}
+
+.f-16 {
+  font-size: 16px;
 }
 
 .grey-color {
@@ -311,6 +323,12 @@ div.orange-line {
   color: #a4a6b3;
 }
 
+li.navlist:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 2px solid #dde2ff;
+  padding: 2%;
+}
+
 .behaviour {
   color: #a4a6b3;
   font-size: 12px;
@@ -395,4 +413,34 @@ div.orange-line {
 
 .ant-progress-bg {
   background: #6d3088;
+}
+
+.blue-box {
+  background: #0c2a66;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.orange-box {
+  background: #ee7301;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.green-box {
+  background: #0cbea9;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.dark-box {
+  background: #007aff;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.female-box {
+  background: #ee3b86;
+  border-radius: 4px;
+  height: 17px;
 }
