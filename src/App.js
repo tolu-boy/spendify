@@ -13,10 +13,10 @@ function App() {
     <>
       <Router>
         <Routes>
-        <Route element={<SideBar/>}>
-        <Route path="/downloads" element={<Downloads/>} />
-        <Route path="/audience" element={<Audience/>} />
-        </Route>
+          <Route element={<SideBar />}>
+            <Route path="/downloads" element={<Downloads />} />
+            <Route path="/audience" element={<Audience />} />
+          </Route>
 
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />

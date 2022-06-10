@@ -1,11 +1,7 @@
-
-
-import React from 'react'
+import React from "react";
 
 const audience = () => {
-  return (
-    <div>audience page for real</div>
-  )
-}
+  return <div>audience page for real</div>;
+};
 
-export default audience
+export default audience;
