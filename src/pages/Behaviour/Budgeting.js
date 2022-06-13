@@ -7,28 +7,20 @@ import {
   LinearScale,
   PointElement,
   LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
   ArcElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { Chart } from "react-google-charts";
-import Header from '../../components/Header'
+import Header from "../../components/Header";
 ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
   ArcElement
 );
 
-const Audience = () => {
+const Budgeting = () => {
   const { Option } = Select;
 
   const options = {
@@ -113,17 +105,17 @@ const Audience = () => {
 
   return (
     <div>
-    <Header title="Audience"/>
-      <Row gutter={16} className="info">
+      <Header title="Behaviour" />
+      <h6 className="pt2x  pl-2"> Budgeting </h6>
+      <Row gutter={16} className="info-behaviour ">
         <Col md={12}>
           <Card>
             <Row>
-
-            <Col md={4} >
-               <p>Active users</p>
+              <Col md={8} className="pt7x">
+                <p>Budgeting activities</p>
               </Col>
 
-              <Col md={4} offset={8}>
+              <Col md={4} offset={4}>
                 <Button shape="round" className="purple-button">
                   Weekly
                 </Button>
@@ -482,4 +474,4 @@ const Audience = () => {
   );
 };
 
-export default Audience;
+export default Budgeting;

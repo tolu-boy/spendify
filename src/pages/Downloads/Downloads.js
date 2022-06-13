@@ -15,7 +15,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { Chart } from "react-google-charts";
-
+import Header from '../../components/Header'
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -111,9 +111,15 @@ const Downloads = () => {
     ["non-binary", 19.3, "#FF6B00"],
   ];
 
+  const options4 = {
+
+    legend: "none",
+  };
+
   return (
     <div>
-      <Row gutter={16}>
+    <Header title="Downloads"/>
+      <Row gutter={16} className="info">
         <Col md={12}>
           <Card>
             <Row>
@@ -417,6 +423,7 @@ const Downloads = () => {
                   width="300px"
                   height="300px"
                   data={data4}
+                  options={options4}
                 />
               </Col>
 

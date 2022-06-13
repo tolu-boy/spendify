@@ -113,17 +113,18 @@ const Audience = () => {
 
   return (
     <div>
-    <Header title="Audience"/>
-      <Row gutter={16} className="info">
+    <Header title="Behaviour"/>
+    <h6 className="pt2x  pl-2"> Income</h6>
+      <Row gutter={16} className="info-behaviour ">
         <Col md={12}>
           <Card>
             <Row>
 
-            <Col md={4} >
-               <p>Active users</p>
+            <Col md={6} >
+               <p>Saving Patterns</p>
               </Col>
 
-              <Col md={4} offset={8}>
+              <Col md={4} offset={6}>
                 <Button shape="round" className="purple-button">
                   Weekly
                 </Button>

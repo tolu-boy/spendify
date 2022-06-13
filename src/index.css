@@ -329,6 +329,12 @@ li.navlist:hover {
   padding: 2%;
 }
 
+.nav-drowpdown  li a:hover{
+  background: rgba(255, 255, 255, 0.04);
+  /* border-left: 2px solid #dde2ff;
+  padding: 1%; */
+}
+
 .behaviour {
   color: #a4a6b3;
   font-size: 12px;
@@ -372,6 +378,10 @@ li.navlist:hover {
 
 .info {
   padding: 2%;
+}
+
+.info-behaviour {
+  padding: 0 2%;
 }
 
 .purple-button {

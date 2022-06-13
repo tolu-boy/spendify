@@ -1,15 +1,15 @@
 import React from "react";
 import { Row, Col, Image, Divider } from "antd";
 import logo from "../images/s-logo.png";
-import downloads from "../images/downloads.svg";
 import overview from "../images/d-overview.svg";
 import tickets from "../images/tickets.svg";
 import bulb from "../images/bulb.svg";
-
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
 const SideBar = () => {
+
+  
   return (
     <div>
       <div className="wrapper">
@@ -61,13 +61,13 @@ const SideBar = () => {
 
                     <Col md={24} className="pt-2">
                       <li>
-                        <Link to="/audience">—Income </Link>
+                        <Link to="/behaviour/income">—Income </Link>
                       </li>
                     </Col>
 
                     <Col md={24} className="pt-2 f-12">
                       <li>
-                        <Link to="/audience">—Bank transactions </Link>
+                        <Link to="/behaviour/bank-transaction">—Bank transactions </Link>
                       </li>
                     </Col>
 
@@ -79,7 +79,7 @@ const SideBar = () => {
 
                     <Col md={24} className="t-28">
                       <li>
-                        <Link to="/audience">—Expense </Link>
+                        <Link to="/behaviour/budgeting">—Budgeting </Link>
                       </li>
                     </Col>
                   </Row>
@@ -103,20 +103,7 @@ const SideBar = () => {
         </div>
 
         <div className="main_content">
-          <div className="header">
-            <Row>
-              <Col md={23}>
-                <p className="download-p"> Downloads</p>
-              </Col>
-
-              <Col md={1}>
-                <Image src={downloads} preview={false} width={32} />
-              </Col>
-            </Row>
-          </div>
-          <div className="info">
-            <Outlet />
-          </div>
+          <Outlet />
         </div>
       </div>
     </div>

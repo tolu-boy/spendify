@@ -4,11 +4,16 @@ import Login from "./pages/Authentication/Login";
 import SignUp from "./pages/Authentication/Signup";
 import SideBar from "./components/SideBar";
 import Downloads from "./pages/Downloads/Downloads";
-import Audience from "./pages/Audience/audience";
+import Audience from "./pages/Audience/Audience";
+import Income from "./pages/Behaviour/Income"
+import Transaction from "./pages/Behaviour/Transactions";
+import Budgeting from "./pages/Behaviour/Budgeting";
 import "antd/dist/antd.min.css";
 import "./index.css";
 
 function App() {
+  console.log(window.location.pathname);
+
   return (
     <>
       <Router>
@@ -16,6 +21,9 @@ function App() {
           <Route element={<SideBar />}>
             <Route path="/downloads" element={<Downloads />} />
             <Route path="/audience" element={<Audience />} />
+            <Route path="/behaviour/income" element={<Income />} />
+            <Route path="/behaviour/bank-transaction" element={<Transaction />} />
+            <Route path="/behaviour/budgeting" element={<Budgeting />} />
           </Route>
 
           <Route path="/" element={<Login />} />
