@@ -55,7 +55,7 @@ const SideBar = () => {
                   <Row className="nav-drowpdown">
                     <Col md={24} className="pt-2">
                       <li>
-                        <Link to="/audience">—Expense </Link>
+                        <Link to="/behaviour/expense">—Expense </Link>
                       </li>
                     </Col>
 

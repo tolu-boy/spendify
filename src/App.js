@@ -8,6 +8,7 @@ import Audience from "./pages/Audience/Audience";
 import Income from "./pages/Behaviour/Income"
 import Transaction from "./pages/Behaviour/Transactions";
 import Budgeting from "./pages/Behaviour/Budgeting";
+import Expense from "./pages/Behaviour/Expense";
 import "antd/dist/antd.min.css";
 import "./index.css";
 
@@ -24,6 +25,8 @@ function App() {
             <Route path="/behaviour/income" element={<Income />} />
             <Route path="/behaviour/bank-transaction" element={<Transaction />} />
             <Route path="/behaviour/budgeting" element={<Budgeting />} />
+            <Route path="/behaviour/expense" element={<Expense />} />
+
           </Route>
 
           <Route path="/" element={<Login />} />
