@@ -188,7 +188,7 @@ const Audience = () => {
                 <h4>
                   500,053
                   <span>
-                    <p className="f-12 grey-color">Total Download</p>
+                    <p className="f-12 grey-color">Total User</p>
                   </span>
                 </h4>
               </Col>
@@ -213,7 +213,7 @@ const Audience = () => {
                 <h4>
                   40,344
                   <span>
-                    <p className="f-12 grey-color">Average Download</p>
+                    <p className="f-12 grey-color">Total Active User</p>
                   </span>
                 </h4>
               </Col>
