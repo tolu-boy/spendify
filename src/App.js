@@ -4,7 +4,7 @@ import Login from "./pages/Authentication/Login";
 import SignUp from "./pages/Authentication/Signup";
 import SideBar from "./components/SideBar";
 import Downloads from "./pages/Downloads/Downloads";
-import Audience from "./pages/Audience/Audience";
+import Audience from "./pages/Audience/audience";
 import Income from "./pages/Behaviour/Income"
 import Transaction from "./pages/Behaviour/Transactions";
 import Budgeting from "./pages/Behaviour/Budgeting";
