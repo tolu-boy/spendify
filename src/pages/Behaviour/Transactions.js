@@ -112,7 +112,7 @@ const Transaction = () => {
           <Card>
             <Row>
               <Col md={8} className="pt7x">
-                <p>Bank transaction activities</p>
+                <p className="f-14">Bank transaction activities</p>
               </Col>
 
               <Col md={4} offset={4}>
@@ -417,14 +417,15 @@ const Transaction = () => {
                   data={data4}
                   options={{
                     legend: "none",
-
                   }}
                 />
               </Col>
 
-              <Col md={7}>
-                <div className="line"></div>
-
+              <Col md={9}>
+                <div className="line">
+                  {" "}
+                  <span className="m-end"> %</span>{" "}
+                </div>
                 <Row gutter={8} className="line pt-2">
                   <Col md={3}>
                     <div className="blue-box"></div>
@@ -433,8 +434,12 @@ const Transaction = () => {
                     <p> Male</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
 
@@ -447,8 +452,12 @@ const Transaction = () => {
                     <p> Female</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
 
@@ -461,8 +470,12 @@ const Transaction = () => {
                     <p> Non-binary</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
               </Col>

@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
 const SideBar = () => {
-
-  
   return (
     <div>
       <div className="wrapper">
@@ -22,7 +20,7 @@ const SideBar = () => {
               <li className="white-color"> MySpendify</li>
             </Col>
           </Row>
-          <li className=" analytics-dashboard ">ANALYTICS</li>
+          <li className="analytics-dashboard ">ANALYTICS</li>
 
           <ul className="nav">
             <li className="navlist">
@@ -67,13 +65,17 @@ const SideBar = () => {
 
                     <Col md={24} className="pt-2 f-12">
                       <li>
-                        <Link to="/behaviour/bank-transaction">—Bank transactions </Link>
+                        <Link to="/behaviour/bank-transaction">
+                          —Bank transactions
+                        </Link>
                       </li>
                     </Col>
 
                     <Col md={24} className="pt-2">
                       <li>
-                        <Link to="/audience">—Income to Expense ratio </Link>
+                        <Link to="/behaviour/income-Expense-Ratio">
+                          —Income to Expense ratio{" "}
+                        </Link>
                       </li>
                     </Col>
 
@@ -91,8 +93,8 @@ const SideBar = () => {
               <Divider className="nav-divided" />
             </li>
 
-            <li className="navlist pt-2">
-              <Link to="/audience">
+            <li className="navlist pt-2 mt-2">
+              <Link to="/global-stats">
                 <span className="pr-2">
                   <Image src={bulb} preview={false} width={14} />
                 </span>

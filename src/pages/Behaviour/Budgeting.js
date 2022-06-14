@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Card, Button, Select, Image, Divider, Progress } from "antd";
-import Rdownload from "../../images/r-download.svg";
+import Rdownload from "../../images/people-1.svg";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -112,7 +112,7 @@ const Budgeting = () => {
           <Card>
             <Row>
               <Col md={8} className="pt7x">
-                <p>Budgeting activities</p>
+                <p className="f-16">Budgeting activities</p>
               </Col>
 
               <Col md={4} offset={4}>
@@ -141,7 +141,7 @@ const Budgeting = () => {
         </Col>
 
         <Col md={6}>
-          <Card className="pb-25">
+          <Card className="">
             <Row>
               <Col md={2} offset={3} className="mt-2x">
                 <p className="f-10 ">To</p>
@@ -180,7 +180,7 @@ const Budgeting = () => {
                 <h4>
                   500,053
                   <span>
-                    <p className="f-12 grey-color">Total Download</p>
+                    <p className="f-12 grey-color">Total user with budget</p>
                   </span>
                 </h4>
               </Col>
@@ -205,7 +205,32 @@ const Budgeting = () => {
                 <h4>
                   40,344
                   <span>
-                    <p className="f-12 grey-color">Average Download</p>
+                    <p className="f-12 grey-color">Total budget volume</p>
+                  </span>
+                </h4>
+              </Col>
+
+              <Col md={4} className="">
+                <Button
+                  size="small"
+                  shape="round"
+                  className="green-button f-10"
+                >
+                  +262
+                </Button>
+              </Col>
+
+              <Divider className="card-divider" />
+
+              <Col md={5} className="">
+                <Image src={Rdownload} preview={false} width={44} />
+              </Col>
+
+              <Col md={15} className="">
+                <h4>
+                  20,344
+                  <span>
+                    <p className="f-10 grey-color">Avergae budget per user</p>
                   </span>
                 </h4>
               </Col>
@@ -417,14 +442,15 @@ const Budgeting = () => {
                   data={data4}
                   options={{
                     legend: "none",
-
                   }}
                 />
               </Col>
 
-              <Col md={7}>
-                <div className="line"></div>
-
+              <Col md={9}>
+                <div className="line">
+                  {" "}
+                  <span className="m-end"> %</span>{" "}
+                </div>
                 <Row gutter={8} className="line pt-2">
                   <Col md={3}>
                     <div className="blue-box"></div>
@@ -433,8 +459,12 @@ const Budgeting = () => {
                     <p> Male</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
 
@@ -447,8 +477,12 @@ const Budgeting = () => {
                     <p> Female</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
 
@@ -461,8 +495,12 @@ const Budgeting = () => {
                     <p> Non-binary</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
               </Col>

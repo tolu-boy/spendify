@@ -15,7 +15,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { Chart } from "react-google-charts";
-import Header from '../../components/Header'
+import Header from "../../components/Header";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -113,15 +113,14 @@ const Audience = () => {
 
   return (
     <div>
-    <Header title="Behaviour"/>
-    <h6 className="pt2x  pl-2"> Income</h6>
+      <Header title="Behaviour" />
+      <h6 className="pt2x  pl-2"> Income</h6>
       <Row gutter={16} className="info-behaviour ">
         <Col md={12}>
           <Card>
             <Row>
-
-            <Col md={6} >
-               <p>Saving Patterns</p>
+              <Col md={6}>
+                <p className="f-16">Saving Patterns</p>
               </Col>
 
               <Col md={4} offset={6}>
@@ -189,7 +188,7 @@ const Audience = () => {
                 <h4>
                   500,053
                   <span>
-                    <p className="f-12 grey-color">Total Download</p>
+                    <p className="f-12 grey-color">Total savings</p>
                   </span>
                 </h4>
               </Col>
@@ -214,7 +213,7 @@ const Audience = () => {
                 <h4>
                   40,344
                   <span>
-                    <p className="f-12 grey-color">Average Download</p>
+                    <p className="f-12 grey-color">Average Savings</p>
                   </span>
                 </h4>
               </Col>
@@ -426,14 +425,14 @@ const Audience = () => {
                   data={data4}
                   options={{
                     legend: "none",
-
                   }}
                 />
               </Col>
 
-              <Col md={7}>
-                <div className="line"></div>
-
+              <Col md={9}>
+                <div className="line">
+                  <span className="m-end"> %</span>{" "}
+                </div>
                 <Row gutter={8} className="line pt-2">
                   <Col md={3}>
                     <div className="blue-box"></div>
@@ -442,8 +441,12 @@ const Audience = () => {
                     <p> Male</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
 
@@ -456,8 +459,12 @@ const Audience = () => {
                     <p> Female</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
 
@@ -470,8 +477,12 @@ const Audience = () => {
                     <p> Non-binary</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
               </Col>

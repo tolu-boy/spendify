@@ -23,7 +23,7 @@ body {
 p {
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 17px;
   letter-spacing: 0.2px;
   color: #000000;
@@ -115,6 +115,10 @@ li {
 
 .mt-2x {
   margin-top: 2%;
+}
+
+.m-end {
+  margin-left: 80%;
 }
 
 .mtN15 {
@@ -325,11 +329,11 @@ div.orange-line {
 
 li.navlist:hover {
   background: rgba(255, 255, 255, 0.04);
-  border-left: 2px solid #dde2ff;
-  padding: 2%;
+  /* border-left: 2px solid #dde2ff; */
+  /* padding-left: 2%; */
 }
 
-.nav-drowpdown  li a:hover{
+.nav-drowpdown li a:hover {
   background: rgba(255, 255, 255, 0.04);
   /* border-left: 2px solid #dde2ff;
   padding: 1%; */
@@ -453,4 +457,97 @@ li.navlist:hover {
   background: #ee3b86;
   border-radius: 4px;
   height: 17px;
+}
+
+.pos-box {
+  background: #3793ff;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.atm-box {
+  background: #4e5cbc;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.transfer-box {
+  background: #2d43d8;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.Withdrawal-box {
+  background: #3751ff;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.direct-debit-box {
+  background: #1e73d6;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.travelling-box {
+  background: #45843c;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.grocery-box {
+  background: #1f744b;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.clothes-box {
+  background: #0c876a;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.telecommunication-box {
+  background: #4a6d1c;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.utility-box {
+  background: #4bb03c;
+  border-radius: 4px;
+  height: 17px;
+}
+
+.globalSelect {
+  width: 100%;
+}
+
+.ant-modal-content {
+  border-radius: 15px;
+}
+
+.price-button {
+  background: #ebeaf1;
+  color: #352978;
+  font-size: 12px;
+  border-radius: 20px;
+  width: 80% !important;
+}
+
+.card-pro {
+  background: #572f87;
+  box-shadow: 0px 42px 34px rgb(82 67 194 / 30%);
+  border-radius: 26px;
+  margin-top: -60px;
+  padding-left: 20px;
+}
+
+.most-popular {
+  margin-left: 40%;
+
+  background: #ffffff;
+  border-radius: 7.5px;
+  color: #45843c;
+  font-size: 8px;
 }

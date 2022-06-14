@@ -1,74 +1,29 @@
 import React from "react";
 import { Row, Col, Card, Button, Select, Image, Divider, Progress } from "antd";
 import Rdownload from "../../images/r-download.svg";
+import { Chart } from "react-google-charts";
+import Header from "../../components/Header";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
-  Filler,
-  ArcElement,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
-import { Chart } from "react-google-charts";
-import Header from "../../components/Header";
+import { Bar } from "react-chartjs-2";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
-  Legend,
-  Filler,
-  ArcElement
+  Legend
 );
-
-const Audience = () => {
+const IncomeToExpenseRatio = () => {
   const { Option } = Select;
-
-  const options = {
-    responsive: true,
-    interaction: {
-      mode: "index",
-      intersect: false,
-    },
-
-    stacked: false,
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-    scales: {
-      y: {
-        type: "linear",
-        display: true,
-        position: "left",
-      },
-    },
-  };
-
-  const labels = ["Jan", "Feb", "March", "Apr", "May", "Jun"];
-
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: "Dataset 1",
-        data: [110, 140, 44, 24, 77, 98, 45, 56, 66, 99, 88, 78, 300],
-        borderColor: "#F3E1EF",
-        pointBackgroundColor: "#6D3088",
-        fill: true,
-        backgroundColor: "#F3E1EF",
-        yAxisID: "y",
-      },
-    ],
-  };
 
   function handleChange(value) {
     console.log(`selected ${value}`);
@@ -88,41 +43,78 @@ const Audience = () => {
     defaultColor: "#828282",
   };
 
-  const data3 = [
-    ["Task", "Hours per Day"],
-    ["Work", 11],
-    ["Eat", 2],
-    ["Eats", 2],
-
-    ["Sleep", 7], // CSS-style declaration
-  ];
-
-  const options3 = {
-    pieHole: 0.4,
-    is3D: false,
-    legend: "none",
-    colors: ["#0C2A66", "#EE7301", "#007AFF", "#0CBEA9"],
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: false,
+    },
   };
 
-  const data4 = [
-    ["Element", "Density", { role: "style" }],
-    ["Female", 8.94, "#EE3C86"], // RGB value
-    ["Male", 10.49, "#007AFF"], // English color name
-    ["non-binary", 19.3, "#FF6B00"],
+  const labels = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
   ];
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Dataset 1",
+        data: [220, 220, 100, 250, 180, 300, 230],
+        backgroundColor: "#007AFF",
+      },
+      {
+        label: "Dataset 2",
+        data: [150, 150, 100, 150, 130, 230, 130],
+        backgroundColor: "#F14055",
+      },
+    ],
+  };
+
+  const labels2 = ["Male", "Female", "Non-binary"];
+
+  const data2 = {
+    labels: labels2,
+    datasets: [
+      {
+        label: "Dataset 1",
+        data: [220, 220, 200],
+        backgroundColor: "#007AFF",
+      },
+      {
+        label: "Dataset 2",
+        data: [150, 150, 100],
+        backgroundColor: "#F14055",
+      },
+    ],
+  };
+
+  const options2 = {
+    indexAxis: "y",
+    responsive: true,
+    plugins: {
+      legend: false,
+    },
+  };
 
   return (
     <div>
-      <Header title="Audience" />
-      <Row gutter={16} className="info">
+      <Header title="Behaviour" />
+      <h6 className="pt2x  pl-2"> income to expense ratio </h6>
+      <Row gutter={16} className="info-behaviour ">
         <Col md={12}>
           <Card>
             <Row>
-              <Col md={4}>
-                <p>Active users</p>
+              <Col md={8} className="pt7x">
+                <p>By period</p>
               </Col>
 
-              <Col md={4} offset={8}>
+              <Col md={4} offset={4}>
                 <Button shape="round" className="purple-button">
                   Weekly
                 </Button>
@@ -141,7 +133,7 @@ const Audience = () => {
               </Col>
 
               <Col md={24} className="pt-2 ">
-                <Line options={options} data={data} />
+                <Bar options={options} data={data} />
               </Col>
             </Row>
           </Card>
@@ -185,9 +177,11 @@ const Audience = () => {
 
               <Col md={15} className="pt-2">
                 <h4>
-                  500,053
+                  32%
                   <span>
-                    <p className="f-12 grey-color">Total User</p>
+                    <p className="f-10 grey-color">
+                      Total Expense : Total income{" "}
+                    </p>
                   </span>
                 </h4>
               </Col>
@@ -210,9 +204,9 @@ const Audience = () => {
 
               <Col md={15} className="">
                 <h4>
-                  40,344
+                  40%
                   <span>
-                    <p className="f-12 grey-color">Average Daily User</p>
+                    <p className="f-10 grey-color">Average Expense : Income</p>
                   </span>
                 </h4>
               </Col>
@@ -329,161 +323,47 @@ const Audience = () => {
           </Card>
         </Col>
 
-        <Col md={12}>
+        <Col md={16}>
           <Card>
             <Row>
-              <Col md={24}>
-                <p className="f-16">Demography</p>
+              <Col md={8} className="pt7x">
+                <p> By Catergories</p>
               </Col>
 
-              <Col md={10}>
-                <Chart
-                  chartType="PieChart"
-                  width="300px"
-                  height="300px"
-                  data={data3}
-                  options={options3}
-                />
+              <Col md={4} offset={4}>
+                <Button shape="round" className="purple-button">
+                  Weekly
+                </Button>
               </Col>
 
-              <Col md={2} className="v-line mt-2"></Col>
+              <Col md={4}>
+                <Button shape="round" className="pink-button">
+                  Monthly
+                </Button>
+              </Col>
 
-              <Col md={10} className="pt-10 mt-2 pl-2">
-                <Row gutter={8} className="line">
-                  <Col md={3}>
-                    <div className="blue-box"></div>
-                  </Col>
+              <Col md={4}>
+                <Button shape="round" className="pink-button">
+                  Year to Date
+                </Button>
+              </Col>
 
-                  <Col md={10}>
-                    <p> Below 20</p>
-                  </Col>
-
-                  <Col md={6} offset={5}>
-                    <p> 44,341</p>
-                  </Col>
-                </Row>
-
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="orange-box"></div>
-                  </Col>
-
-                  <Col md={10}>
-                    <p> 20- 30</p>
-                  </Col>
-
-                  <Col md={6} offset={5}>
-                    <p> 50,341</p>
-                  </Col>
-                </Row>
-
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="green-box"></div>
-                  </Col>
-
-                  <Col md={10}>
-                    <p> 31 - 45</p>
-                  </Col>
-
-                  <Col md={6} offset={5}>
-                    <p> 34,341</p>
-                  </Col>
-                </Row>
-
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="dark-box"></div>
-                  </Col>
-
-                  <Col md={10}>
-                    <p> 45 - above</p>
-                  </Col>
-
-                  <Col md={6} offset={5}>
-                    <p> 34,341</p>
-                  </Col>
-                </Row>
+              <Col md={24} className="pt-2 ">
+                <Bar options={options} data={data} />
               </Col>
             </Row>
           </Card>
         </Col>
 
-        <Col md={12}>
+        <Col md={8}>
           <Card>
             <Row>
-              <Col md={24}>
-                <p className="f-16">Gender</p>
+              <Col md={8} className="pt7x">
+                <p className="f-16"> By Gender</p>
               </Col>
 
-              <Col md={15}>
-                <Chart
-                  chartType="ColumnChart"
-                  width="300px"
-                  height="300px"
-                  data={data4}
-                  options={{
-                    legend: "none",
-                  }}
-                />
-              </Col>
-
-              <Col md={9}>
-                <div className="line">
-                  <span className="m-end"> %</span>{" "}
-                </div>
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="blue-box"></div>
-                  </Col>
-                  <Col md={10}>
-                    <p> Male</p>
-                  </Col>
-
-                  <Col md={6}>
-                    <p> 50,341</p>
-                  </Col>
-
-                  <Col md={5}>
-                    <p> 33</p>
-                  </Col>
-                </Row>
-
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="female-box"></div>
-                  </Col>
-
-                  <Col md={10}>
-                    <p> Female</p>
-                  </Col>
-
-                  <Col md={6}>
-                    <p> 50,341</p>
-                  </Col>
-
-                  <Col md={5}>
-                    <p> 33</p>
-                  </Col>
-                </Row>
-
-                <Row gutter={8} className=" pt-2">
-                  <Col md={3}>
-                    <div className="orange-box"></div>
-                  </Col>
-
-                  <Col md={10}>
-                    <p> Non-binary</p>
-                  </Col>
-
-                  <Col md={6}>
-                    <p> 50,341</p>
-                  </Col>
-
-                  <Col md={5}>
-                    <p> 33</p>
-                  </Col>
-                </Row>
+              <Col md={24} className="pt-2 ">
+                <Bar options={options2} data={data2} height={320} />
               </Col>
             </Row>
           </Card>
@@ -493,4 +373,4 @@ const Audience = () => {
   );
 };
 
-export default Audience;
+export default IncomeToExpenseRatio;

@@ -1,6 +1,17 @@
-import React from "react";
-import { Row, Col, Card, Button, Select, Image, Divider, Progress } from "antd";
+import React, { useState, useEffect } from "react";
+import {
+  Row,
+  Col,
+  Card,
+  Button,
+  Select,
+  Image,
+  Divider,
+  Progress,
+  Modal,
+} from "antd";
 import Rdownload from "../../images/r-download.svg";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -15,7 +26,8 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { Chart } from "react-google-charts";
-import Header from '../../components/Header'
+import Header from "../../components/Header";
+import Payment from "../../components/Payment";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -112,13 +124,27 @@ const Downloads = () => {
   ];
 
   const options4 = {
-
     legend: "none",
   };
 
+
+  const [visible, setVisible] = useState(false);
+
+  const handleCancel = () => {
+    setVisible(false);
+  };
+
+  useEffect(() => {
+    let pop_status = localStorage.getItem("pop_status");
+    if (!pop_status) {
+      setVisible(true);
+      localStorage.setItem("pop_status", true);
+    }
+  }, []);
+
   return (
     <div>
-    <Header title="Downloads"/>
+      <Header title="Downloads" />
       <Row gutter={16} className="info">
         <Col md={12}>
           <Card>
@@ -427,9 +453,10 @@ const Downloads = () => {
                 />
               </Col>
 
-              <Col md={7}>
-                <div className="line"></div>
-
+              <Col md={9}>
+                <div className="line">
+                  <span className="m-end"> %</span>{" "}
+                </div>
                 <Row gutter={8} className="line pt-2">
                   <Col md={3}>
                     <div className="blue-box"></div>
@@ -438,8 +465,12 @@ const Downloads = () => {
                     <p> Male</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
 
@@ -452,8 +483,12 @@ const Downloads = () => {
                     <p> Female</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
 
@@ -466,8 +501,12 @@ const Downloads = () => {
                     <p> Non-binary</p>
                   </Col>
 
-                  <Col md={6} offset={5}>
+                  <Col md={6}>
                     <p> 50,341</p>
+                  </Col>
+
+                  <Col md={5}>
+                    <p> 33</p>
                   </Col>
                 </Row>
               </Col>
@@ -475,6 +514,10 @@ const Downloads = () => {
           </Card>
         </Col>
       </Row>
+
+      <Modal visible={visible} onCancel={handleCancel} footer={false}>
+        <Payment />
+      </Modal>
     </div>
   );
 };

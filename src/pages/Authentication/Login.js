@@ -3,10 +3,8 @@ import { Row, Col, Button, Form, Input, Card, Image } from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import logo from "../../images/s-logo.png";
 import { useNavigate } from "react-router-dom";
-
 const Login = () => {
   const navigate = useNavigate();
-
   return (
     <div>
       <section className="login-section">
