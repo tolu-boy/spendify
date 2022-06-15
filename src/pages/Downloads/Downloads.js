@@ -135,11 +135,14 @@ const Downloads = () => {
   };
 
   useEffect(() => {
-    let pop_status = localStorage.getItem("pop_status");
+    setTimeout(() => {
+      let pop_status = localStorage.getItem("pop_status");
     if (!pop_status) {
       setVisible(true);
       localStorage.setItem("pop_status", true);
     }
+    }, 2500);
+    
   }, []);
 
   return (

@@ -14,12 +14,14 @@ const GlobalStats = () => {
     ["Country", "Popularity"],
     ["Germany", 200],
     ["United States", 300],
-    ["RU", 700],
+    ["RU", 7000],
+    ["Nigeria", 5000],
+
   ];
 
   const options1 = {
     // region: "002", // Africa
-    colorAxis: { colors: ["#828282", "#6D3088"] },
+    colorAxis: { colors: ["#828282", "#6D3088", "red", 'orange'] },
     datalessRegionColor: "#828282",
     defaultColor: "#828282",
     legend: "none",
