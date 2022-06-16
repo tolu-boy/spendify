@@ -253,7 +253,7 @@ const Budgeting = () => {
             <Chart
               chartType="GeoChart"
               width="100%"
-              height="150px"
+              height="170px"
               data={data1}
               options={options1}
             />
