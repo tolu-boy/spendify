@@ -248,7 +248,7 @@ const Budgeting = () => {
           </Card>
         </Col>
 
-        <Col md={6} className="pb-2">
+        <Col md={6} >
           <Card>
             <Chart
               chartType="GeoChart"
@@ -347,7 +347,7 @@ const Budgeting = () => {
           </Card>
         </Col>
 
-        <Col md={12}>
+        <Col md={12}  className="mt-2">
           <Card>
             <Row>
               <Col md={24}>
@@ -427,7 +427,7 @@ const Budgeting = () => {
           </Card>
         </Col>
 
-        <Col md={12}>
+        <Col md={12}  className="mt-2">
           <Card>
             <Row>
               <Col md={24}>

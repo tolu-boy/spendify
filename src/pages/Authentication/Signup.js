@@ -168,9 +168,9 @@ const SignUp = () => {
                     <Form.Item>
                       <p className="f-12">
                         By creating account You agree to the
-                        <span className="purple-color">Terms of use </span>
+                        <span className="purple-color pl-1">Terms of use </span>
                         and
-                        <span className="purple-color">Privacy Policy</span>
+                        <span className="purple-color pl-1">Privacy Policy</span>
                       </p>
                     </Form.Item>
                   </Col>

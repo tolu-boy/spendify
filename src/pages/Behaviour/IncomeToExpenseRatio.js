@@ -224,7 +224,7 @@ const IncomeToExpenseRatio = () => {
           </Card>
         </Col>
 
-        <Col md={6} className="pb-2">
+        <Col md={6} >
           <Card>
             <Chart
               chartType="GeoChart"
@@ -323,26 +323,26 @@ const IncomeToExpenseRatio = () => {
           </Card>
         </Col>
 
-        <Col md={16}>
+        <Col md={16}  className="mt-2">
           <Card>
             <Row>
               <Col md={8} className="pt7x">
                 <p> By Catergories</p>
               </Col>
 
-              <Col md={4} offset={4}>
+              <Col md={3} offset={6}>
                 <Button shape="round" className="purple-button">
                   Weekly
                 </Button>
               </Col>
 
-              <Col md={4}>
+              <Col md={3}>
                 <Button shape="round" className="pink-button">
                   Monthly
                 </Button>
               </Col>
 
-              <Col md={4}>
+              <Col md={3}>
                 <Button shape="round" className="pink-button">
                   Year to Date
                 </Button>
@@ -355,7 +355,7 @@ const IncomeToExpenseRatio = () => {
           </Card>
         </Col>
 
-        <Col md={8}>
+        <Col md={8}  className="mt-2">
           <Card>
             <Row>
               <Col md={8} className="pt7x">
