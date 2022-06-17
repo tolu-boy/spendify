@@ -120,7 +120,7 @@ const Audience = () => {
           <Card>
             <Row>
               <Col md={6}>
-                <p className="f-16">Saving Patterns</p>
+                <p >Saving Patterns</p>
               </Col>
 
               <Col md={4} offset={6}>
@@ -148,14 +148,15 @@ const Audience = () => {
           </Card>
         </Col>
 
+       
         <Col md={6}>
-          <Card className="pb-25">
-            <Row>
-              <Col md={2} offset={3} className="mt-2x">
-                <p className="f-10 ">To</p>
+          <Card className="pb-25" >
+            <Row gutter={8} className="pl-15">
+              <Col lg={2}  xl={2} className="mt-2x">
+                <li className="f-10 ">To</li>
               </Col>
 
-              <Col md={8} xs={24}>
+              <Col lg={10} xl={9} >
                 <Select
                   defaultValue="Present"
                   onChange={handleChange}
@@ -166,10 +167,11 @@ const Audience = () => {
                 </Select>
               </Col>
 
-              <Col md={3} className="mt-2x">
-                <p className="f-10">From</p>
-              </Col>
-              <Col md={7} xs={24}>
+              <Col lg={4}  xl={4} className="mt-2x">
+                <li className="f-10">From</li>
+              </Col>   
+
+               <Col lg={7} xl={8} >
                 <Select
                   defaultValue="Inception"
                   onChange={handleChange}
@@ -178,22 +180,25 @@ const Audience = () => {
                 >
                   <Option value="jack"> last week</Option>
                 </Select>
+              </Col>          
+            </Row>
+
+            <Row gutter={8} className="pt-10">
+           
+              <Col md={5} >
+                <Image src={Rdownload} preview={false}  />
               </Col>
 
-              <Col md={5} className="pt-2">
-                <Image src={Rdownload} preview={false} width={44} />
-              </Col>
-
-              <Col md={15} className="pt-2">
+              <Col md={14} >
                 <h4>
                   500,053
                   <span>
-                    <p className="f-12 grey-color">Total savings</p>
+                    <p className="f-12 grey-color">Total spending</p>
                   </span>
                 </h4>
               </Col>
 
-              <Col md={4} className="pt-5 ">
+              <Col md={5} >
                 <Button
                   size="small"
                   shape="round"
@@ -205,20 +210,20 @@ const Audience = () => {
 
               <Divider className="card-divider" />
 
-              <Col md={5} className="">
-                <Image src={Rdownload} preview={false} width={44} />
+              <Col md={5} >
+                <Image src={Rdownload} preview={false}  />
               </Col>
 
-              <Col md={15} className="">
+              <Col md={14} >
                 <h4>
-                  40,344
+                40,344
                   <span>
-                    <p className="f-12 grey-color">Average Savings</p>
+                    <p className="f-10 grey-color"> Average spending</p>
                   </span>
                 </h4>
               </Col>
 
-              <Col md={4} className="">
+              <Col md={5} className="">
                 <Button
                   size="small"
                   shape="round"
@@ -227,6 +232,8 @@ const Audience = () => {
                   +262
                 </Button>
               </Col>
+
+
             </Row>
           </Card>
         </Col>
@@ -285,7 +292,7 @@ const Audience = () => {
 
               <Col md={13} className="pt-2">
                 <p className="purple-color pl-35">
-                  Country <span className="f-10 grey-color"> city</span>
+                  Country<span className="f-10 grey-color pl-2">city</span>
                 </p>
 
                 <Row>
@@ -330,7 +337,7 @@ const Audience = () => {
           </Card>
         </Col>
 
-        <Col md={12}  className="mt-2">
+        <Col md={12} className="mt-2">
           <Card>
             <Row>
               <Col md={24}>
@@ -347,7 +354,7 @@ const Audience = () => {
                 />
               </Col>
 
-              <Col md={2} className="v-line mt-2"></Col>
+              <Col md={4} className="v-line mt-2"></Col>
 
               <Col md={10} className="pt-10 mt-2 pl-2">
                 <Row gutter={8} className="line">
