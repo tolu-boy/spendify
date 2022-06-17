@@ -140,13 +140,13 @@ const IncomeToExpenseRatio = () => {
         </Col>
 
         <Col md={6}>
-          <Card className="pb-25" >
+          <Card className="pb-25">
             <Row gutter={8} className="pl-15">
-              <Col lg={2}  xl={2} className="mt-2x">
+              <Col lg={2} xl={2} className="mt-2x">
                 <li className="f-10 ">To</li>
               </Col>
 
-              <Col lg={10} xl={9} >
+              <Col lg={10} xl={9}>
                 <Select
                   defaultValue="Present"
                   onChange={handleChange}
@@ -157,11 +157,11 @@ const IncomeToExpenseRatio = () => {
                 </Select>
               </Col>
 
-              <Col lg={4}  xl={4} className="mt-2x">
+              <Col lg={4} xl={4} className="mt-2x">
                 <li className="f-10">From</li>
-              </Col>   
+              </Col>
 
-               <Col lg={7} xl={8} >
+              <Col lg={7} xl={8}>
                 <Select
                   defaultValue="Inception"
                   onChange={handleChange}
@@ -170,25 +170,26 @@ const IncomeToExpenseRatio = () => {
                 >
                   <Option value="jack"> last week</Option>
                 </Select>
-              </Col>          
+              </Col>
             </Row>
 
             <Row gutter={8} className="pt-10">
-           
-              <Col md={5} >
-                <Image src={Rdownload} preview={false}  />
+              <Col md={5}>
+                <Image src={Rdownload} preview={false} />
               </Col>
 
-              <Col md={14} >
+              <Col md={14}>
                 <h4>
-                32%
+                  32%
                   <span>
-                    <p className="f-12 grey-color">Total Expense : Total income </p>
+                    <p className="f-12 grey-color">
+                      Total Expense : Total income{" "}
+                    </p>
                   </span>
                 </h4>
               </Col>
 
-              <Col md={5} >
+              <Col md={5}>
                 <Button
                   size="small"
                   shape="round"
@@ -200,13 +201,13 @@ const IncomeToExpenseRatio = () => {
 
               <Divider className="card-divider" />
 
-              <Col md={5} >
-                <Image src={Rdownload} preview={false}  />
+              <Col md={5}>
+                <Image src={Rdownload} preview={false} />
               </Col>
 
-              <Col md={14} >
+              <Col md={14}>
                 <h4>
-                45%
+                  45%
                   <span>
                     <p className="f-10 grey-color"> Average Expense : Income</p>
                   </span>
@@ -222,13 +223,11 @@ const IncomeToExpenseRatio = () => {
                   +262
                 </Button>
               </Col>
-
-
             </Row>
           </Card>
         </Col>
 
-        <Col md={6} >
+        <Col md={6}>
           <Card>
             <Chart
               chartType="GeoChart"
@@ -327,7 +326,7 @@ const IncomeToExpenseRatio = () => {
           </Card>
         </Col>
 
-        <Col md={16}  className="mt-2">
+        <Col md={16} className="mt-2">
           <Card>
             <Row>
               <Col md={8} className="pt7x">
@@ -359,7 +358,7 @@ const IncomeToExpenseRatio = () => {
           </Card>
         </Col>
 
-        <Col md={8}  className="mt-2">
+        <Col md={8} className="mt-2">
           <Card>
             <Row>
               <Col md={8} className="pt7x">

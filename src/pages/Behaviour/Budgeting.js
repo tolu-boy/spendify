@@ -112,7 +112,7 @@ const Budgeting = () => {
           <Card>
             <Row>
               <Col md={8} className="pt7x">
-                <p >Budgeting activities</p>
+                <p>Budgeting activities</p>
               </Col>
 
               <Col md={4} offset={4}>
@@ -141,13 +141,13 @@ const Budgeting = () => {
         </Col>
 
         <Col md={6}>
-          <Card className="" >
+          <Card className="">
             <Row gutter={8} className="pl-15">
-              <Col lg={2}  xl={2} className="mt-2x">
+              <Col lg={2} xl={2} className="mt-2x">
                 <li className="f-10 ">To</li>
               </Col>
 
-              <Col lg={10} xl={9} >
+              <Col lg={10} xl={9}>
                 <Select
                   defaultValue="Present"
                   onChange={handleChange}
@@ -158,11 +158,11 @@ const Budgeting = () => {
                 </Select>
               </Col>
 
-              <Col lg={4}  xl={4} className="mt-2x">
+              <Col lg={4} xl={4} className="mt-2x">
                 <li className="f-10">From</li>
-              </Col>   
+              </Col>
 
-               <Col lg={7} xl={8} >
+              <Col lg={7} xl={8}>
                 <Select
                   defaultValue="Inception"
                   onChange={handleChange}
@@ -171,25 +171,24 @@ const Budgeting = () => {
                 >
                   <Option value="jack"> last week</Option>
                 </Select>
-              </Col>          
+              </Col>
             </Row>
 
             <Row gutter={8} className="pt-10">
-           
-              <Col md={5} >
-                <Image src={Rdownload} preview={false}  />
+              <Col md={5}>
+                <Image src={Rdownload} preview={false} />
               </Col>
 
-              <Col md={14} >
+              <Col md={14}>
                 <h4>
-                N1,500,053
+                  N1,500,053
                   <span>
                     <p className="f-10 grey-color">Total user with budget</p>
                   </span>
                 </h4>
               </Col>
 
-              <Col md={5} >
+              <Col md={5}>
                 <Button
                   size="small"
                   shape="round"
@@ -201,13 +200,13 @@ const Budgeting = () => {
 
               <Divider className="card-divider" />
 
-              <Col md={5} >
-                <Image src={Rdownload} preview={false}  />
+              <Col md={5}>
+                <Image src={Rdownload} preview={false} />
               </Col>
 
-              <Col md={14} >
+              <Col md={14}>
                 <h4>
-                N500,344
+                  N500,344
                   <span>
                     <p className="f-10 grey-color"> Total budget volume</p>
                   </span>
@@ -225,13 +224,13 @@ const Budgeting = () => {
               </Col>
               <Divider className="card-divider" />
 
-              <Col md={5} >
-                <Image src={Rdownload} preview={false}  />
+              <Col md={5}>
+                <Image src={Rdownload} preview={false} />
               </Col>
 
-              <Col md={14} >
+              <Col md={14}>
                 <h4>
-                N500,344
+                  N500,344
                   <span>
                     <p className="f-10 grey-color"> Avergae budget per user</p>
                   </span>
@@ -247,16 +246,11 @@ const Budgeting = () => {
                   +262
                 </Button>
               </Col>
-
-
-              
-
-
             </Row>
           </Card>
         </Col>
 
-        <Col md={6} >
+        <Col md={6}>
           <Card>
             <Chart
               chartType="GeoChart"
@@ -355,7 +349,7 @@ const Budgeting = () => {
           </Card>
         </Col>
 
-        <Col md={12}  className="mt-2">
+        <Col md={12} className="mt-2">
           <Card>
             <Row>
               <Col md={24}>
@@ -427,7 +421,7 @@ const Budgeting = () => {
                   </Col>
 
                   <Col md={6} offset={5}>
-                    <p> 34,341</p>
+                    <p> 34,342</p>
                   </Col>
                 </Row>
               </Col>
@@ -435,7 +429,7 @@ const Budgeting = () => {
           </Card>
         </Col>
 
-        <Col md={12}  className="mt-2">
+        <Col md={12} className="mt-2">
           <Card>
             <Row>
               <Col md={24}>

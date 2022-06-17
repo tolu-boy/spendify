@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/Header";
-import { Row, Col, Card, Select, Divider  } from "antd";
-import { Chart} from "react-google-charts";
+import { Row, Col, Card, Select, Divider } from "antd";
+import { Chart } from "react-google-charts";
 
 const GlobalStats = () => {
   const { Option } = Select;
@@ -30,19 +30,16 @@ const GlobalStats = () => {
       <Header title="Global stats" />
       <Row gutter={16} className="info">
         <Col md={24}>
-          <Card >
+          <Card>
             <Row>
               <Col md={4}>
                 <p className="">Filter by:</p>
                 <Divider className="card-divider" />
 
                 <Row>
-                  <Col md={24} >
+                  <Col md={24}>
                     <li className="pb-2">Select Location</li>
-                    <Select
-                      onChange={handleChange}
-                      className="globalSelect"
-                    >
+                    <Select onChange={handleChange} className="globalSelect">
                       <Option value="jack">Jack</Option>
                       <Option value="lucy">Lucy</Option>
                       <Option value="disabled" disabled>
@@ -54,10 +51,7 @@ const GlobalStats = () => {
 
                   <Col md={24} className="pt-2">
                     <li className="pb-2">Select Location</li>
-                    <Select
-                      onChange={handleChange}
-                      className="globalSelect"
-                    >
+                    <Select onChange={handleChange} className="globalSelect">
                       <Option value="jack">Jack</Option>
                       <Option value="lucy">Lucy</Option>
                       <Option value="disabled" disabled>
@@ -69,10 +63,7 @@ const GlobalStats = () => {
 
                   <Col md={24} className="pt-2">
                     <li className="pb-2">Filter by behaviour</li>
-                    <Select
-                      onChange={handleChange}
-                      className="globalSelect"
-                    >
+                    <Select onChange={handleChange} className="globalSelect">
                       <Option value="jack">Jack</Option>
                       <Option value="lucy">Lucy</Option>
                       <Option value="disabled" disabled>
@@ -82,13 +73,9 @@ const GlobalStats = () => {
                     </Select>
                   </Col>
 
-
                   <Col md={24} className="pt-2">
                     <li className="pb-2">Gender</li>
-                    <Select
-                      onChange={handleChange}
-                      className="globalSelect"
-                    >
+                    <Select onChange={handleChange} className="globalSelect">
                       <Option value="jack">Jack</Option>
                       <Option value="lucy">Lucy</Option>
                       <Option value="disabled" disabled>
@@ -100,10 +87,7 @@ const GlobalStats = () => {
 
                   <Col md={24} className="pt-2">
                     <li className="pb-2">Demography</li>
-                    <Select
-                      onChange={handleChange}
-                      className="globalSelect"
-                    >
+                    <Select onChange={handleChange} className="globalSelect">
                       <Option value="jack">Jack</Option>
                       <Option value="lucy">Lucy</Option>
                       <Option value="disabled" disabled>
@@ -112,14 +96,10 @@ const GlobalStats = () => {
                       <Option value="Yiminghe">yiminghe</Option>
                     </Select>
                   </Col>
-
 
                   <Col md={24} className="pt-2">
                     <li className="pb-2">Spending category</li>
-                    <Select
-                      onChange={handleChange}
-                      className="globalSelect"
-                    >
+                    <Select onChange={handleChange} className="globalSelect">
                       <Option value="jack">Jack</Option>
                       <Option value="lucy">Lucy</Option>
                       <Option value="disabled" disabled>
@@ -128,23 +108,19 @@ const GlobalStats = () => {
                       <Option value="Yiminghe">yiminghe</Option>
                     </Select>
                   </Col>
-
-
-                  
                 </Row>
               </Col>
 
               <Col md={1} className="v-line"></Col>
 
               <Col md={16}>
-              <Chart
-              chartType="GeoChart"
-              width="100%"
-              height="100%"
-              data={data1}
-              options={options1}
-
-            />
+                <Chart
+                  chartType="GeoChart"
+                  width="100%"
+                  height="100%"
+                  data={data1}
+                  options={options1}
+                />
               </Col>
             </Row>
           </Card>

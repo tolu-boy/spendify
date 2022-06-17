@@ -141,13 +141,13 @@ const Transaction = () => {
         </Col>
 
         <Col md={6}>
-          <Card className="pb-25" >
+          <Card className="pb-25">
             <Row gutter={8} className="pl-15">
-              <Col lg={2}  xl={2} className="mt-2x">
+              <Col lg={2} xl={2} className="mt-2x">
                 <li className="f-10 ">To</li>
               </Col>
 
-              <Col lg={10} xl={9} >
+              <Col lg={10} xl={9}>
                 <Select
                   defaultValue="Present"
                   onChange={handleChange}
@@ -158,11 +158,11 @@ const Transaction = () => {
                 </Select>
               </Col>
 
-              <Col lg={4}  xl={4} className="mt-2x">
+              <Col lg={4} xl={4} className="mt-2x">
                 <li className="f-10">From</li>
-              </Col>   
+              </Col>
 
-               <Col lg={7} xl={8} >
+              <Col lg={7} xl={8}>
                 <Select
                   defaultValue="Inception"
                   onChange={handleChange}
@@ -171,16 +171,15 @@ const Transaction = () => {
                 >
                   <Option value="jack"> last week</Option>
                 </Select>
-              </Col>          
+              </Col>
             </Row>
 
             <Row gutter={8} className="pt-10">
-           
-              <Col md={5} >
-                <Image src={Rdownload} preview={false}  />
+              <Col md={5}>
+                <Image src={Rdownload} preview={false} />
               </Col>
 
-              <Col md={14} >
+              <Col md={14}>
                 <h4>
                   500,053
                   <span>
@@ -189,7 +188,7 @@ const Transaction = () => {
                 </h4>
               </Col>
 
-              <Col md={5} >
+              <Col md={5}>
                 <Button
                   size="small"
                   shape="round"
@@ -201,13 +200,13 @@ const Transaction = () => {
 
               <Divider className="card-divider" />
 
-              <Col md={5} >
-                <Image src={Rdownload} preview={false}  />
+              <Col md={5}>
+                <Image src={Rdownload} preview={false} />
               </Col>
 
-              <Col md={14} >
+              <Col md={14}>
                 <h4>
-                40,344
+                  40,344
                   <span>
                     <p className="f-10 grey-color">Average bank transaction</p>
                   </span>
@@ -223,14 +222,11 @@ const Transaction = () => {
                   +262
                 </Button>
               </Col>
-
-
             </Row>
           </Card>
         </Col>
 
-
-        <Col md={6} >
+        <Col md={6}>
           <Card>
             <Chart
               chartType="GeoChart"
@@ -329,7 +325,7 @@ const Transaction = () => {
           </Card>
         </Col>
 
-        <Col md={12}  className="mt-2">
+        <Col md={12} className="mt-2">
           <Card>
             <Row>
               <Col md={24}>
@@ -409,7 +405,7 @@ const Transaction = () => {
           </Card>
         </Col>
 
-        <Col md={12}  className="mt-2">
+        <Col md={12} className="mt-2">
           <Card>
             <Row>
               <Col md={24}>
