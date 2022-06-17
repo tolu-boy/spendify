@@ -35,7 +35,7 @@ p {
 
 h4 {
   font-weight: 700;
-  font-size: 26px;
+ font-size: clamp(14px, 20px, 30px);
   line-height: 31px;
   letter-spacing: 0.2px;
   color: #000000;
@@ -94,6 +94,10 @@ li {
   padding-top: 10%;
 }
 
+.pl-15{
+  padding-left: 15%;
+}
+
 .pl-2 {
   padding-left: 2%;
 }
@@ -134,7 +138,7 @@ li {
 }
 
 .f-12 {
-  font-size: 12px;
+  font-size: clamp(0.5rem, 0.75rem, 0.75rem); 
 }
 
 .f-14 {
@@ -558,4 +562,12 @@ li.navlist:hover {
   border-radius: 7.5px;
   color: #45843c;
   font-size: 8px;
+}
+
+
+@media only screen and (max-width: 1330px) {
+  /* For mobile phones: */
+  .pl-15{
+   padding: 0;
+  }
 }
