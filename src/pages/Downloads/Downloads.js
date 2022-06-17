@@ -184,7 +184,7 @@ const Downloads = () => {
                 <li className="f-10 ">To</li>
               </Col>
 
-              <Col lg={10} xl={10} >
+              <Col lg={10} xl={9} >
                 <Select
                   defaultValue="Present"
                   onChange={handleChange}
@@ -199,7 +199,7 @@ const Downloads = () => {
                 <li className="f-10">From</li>
               </Col>   
 
-               <Col lg={7} xl={7} >
+               <Col lg={7} xl={8} >
                 <Select
                   defaultValue="Inception"
                   onChange={handleChange}
