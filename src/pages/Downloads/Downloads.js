@@ -624,7 +624,7 @@ const Downloads = () => {
               options={ChartState1.options}
               series={ChartState1.series}
               type="bar"
-              height="100%"
+              height="130%"
               width="100%"
               className="rrrr"
             />
