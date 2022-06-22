@@ -1,6 +1,18 @@
-import React from "react";
-import { Row, Col, Card, Button, Select, Image, Divider, Progress } from "antd";
+import React, { useState, useEffect } from "react";
+import {
+  Row,
+  Col,
+  Card,
+  Button,
+  Select,
+  Image,
+  Divider,
+  Progress,
+  Modal,
+  
+} from "antd";
 import Rdownload from "../../images/r-download.svg";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -14,8 +26,11 @@ import {
   ArcElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { Chart } from "react-google-charts";
+import Chart  from "react-apexcharts";
+
+import { Chart as MapChart }  from "react-google-charts";
 import Header from "../../components/Header";
+import Payment from "../../components/Payment";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -27,6 +42,7 @@ ChartJS.register(
   Filler,
   ArcElement
 );
+
 
 const Audience = () => {
   const { Option } = Select;
@@ -82,104 +98,212 @@ const Audience = () => {
   ];
 
   const options1 = {
-    // region: "002", // Africa
     colorAxis: { colors: ["#828282", "#6D3088"] },
     datalessRegionColor: "#828282",
     defaultColor: "#828282",
   };
 
-  const data3 = [
-    ["Task", "Hours per Day"],
-    ["Work", 11],
-    ["Eat", 2],
-    ["Eats", 2],
+ 
 
-    ["Sleep", 7], // CSS-style declaration
-  ];
+  const [visible, setVisible] = useState(false);
 
-  const options3 = {
-    pieHole: 0.4,
-    is3D: false,
-    legend: "none",
-    colors: ["#0C2A66", "#EE7301", "#007AFF", "#0CBEA9"],
+  const handleCancel = () => {
+    setVisible(false);
   };
 
-  const data4 = [
-    ["Element", "Density", { role: "style" }],
-    ["Female", 8.94, "#EE3C86"], // RGB value
-    ["Male", 10.49, "#007AFF"], // English color name
-    ["non-binary", 19.3, "#FF6B00"],
-  ];
+  useEffect(() => {
+    setTimeout(() => {
+      let pop_status = localStorage.getItem("pop_status");
+      if (!pop_status) {
+        setVisible(true);
+        localStorage.setItem("pop_status", true);
+      }
+    }, 2500);
+  }, []);
+
+
+  let ChartState = {
+    options: {
+      legend: {
+        show: false
+      },
+
+      dataLabels: {
+        style: {
+          colors: ['#FFFFFF', '#FFFFFF', '#000000','#000000'],
+          fontSize: "10px",
+          fontFamily: "DINNeuzeitGrotesk-Light, sans-serif",
+          fontWeight: "bold"
+        },
+        dropShadow: {
+          enabled: false,
+          
+      }
+      },
+
+      colors: ['#0C2A66', '#EE7301', '#007AFF','#0CBEA9']
+
+      
+    },
+
+
+    series: [44, 55, 41, 17, ],
+    labels: ['A', 'B', 'C', 'D']
+  }
+
+  let ChartState1 = {
+          
+    series: [{
+      name: 'PRODUCT A',
+      data: [44, 55, 41]
+    }, 
+    
+  ],
+    options: {
+
+      chart: {
+        type: 'bar',
+        height: "150%",
+        stacked: false,
+        toolbar: {
+          show: false
+        },
+
+       
+
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          // borderRadius: 10
+          },
+         
+        },
+      },
+      
+      xaxis: {
+        type: 'String',
+        categories: ['Male', 'Female', 'Non binary',
+        ],
+        tickPlacement: 'on',
+      },
+
+      yaxis: { 
+        show: false,
+        labels: {
+          show: false,
+         
+      }
+    },
+      dataLabels: {
+        enabled: false,
+       
+      },
+
+      legend: {
+        show:false
+      },
+      fill: {
+        opacity: 10
+      },      
+
+
+   
+    plotOptions: {
+        bar: {
+            distributed: true, // this line is mandatory
+            horizontal: false,
+        },
+    },
+    colors: [ // this array contains different color code for each data
+        "#EE3C86",
+        "#007AFF",
+        "#FF6B00",
+    ],
+
+    },
+  
+   
+    
+  
+  };
+
+
+
 
   return (
     <div>
-      <Header title="Audience" />
-      <Row gutter={16} className="info">
-        <Col md={12}>
-          <Card>
-            <Row>
-              <Col md={4}>
-                <p>Active users</p>
-              </Col>
+      <Header title="Audience" dropdown={true} />
+    
+     <div className="grid-size info">
+      <Card >
+        
+       
 
-              <Col md={4} offset={8}>
-                <Button shape="round" className="purple-button">
-                  Weekly
+            <div className="row-end">
+            
+            <p className="mr-auto pt-1">Active users</p>
+
+            <Button shape="round" className="purple-button">
+                 Daily
                 </Button>
-              </Col>
-
-              <Col md={4}>
-                <Button shape="round" className="pink-button">
-                  Monthly
+        
+            <Button shape="round" className="pink-button ml-2">
+                   Weekly
                 </Button>
-              </Col>
 
-              <Col md={4}>
-                <Button shape="round" className="pink-button">
-                  Year to Date
+          
+            <Button shape="round" className="pink-button ml-2">
+            Monthly
                 </Button>
-              </Col>
 
-              <Col md={24} className="pt-2 ">
-                <Line options={options} data={data} />
-              </Col>
-            </Row>
+                <Button shape="round" className="pink-button ml-2">
+            Yearly
+                </Button>
+                </div>
+
+                
+
+                <Row className="pt-2" >
+                  <Col md={24}>
+                  <Line options={options} data={data}  />
+
+                  </Col>
+                </Row>
+
+
           </Card>
-        </Col>
 
-        <Col md={6}>
-          <Card>
-            <Row gutter={8} className="pl-15">
-              <Col lg={2} xl={2} className="mt-2x">
-                <li className="f-10 ">To</li>
-              </Col>
 
-              <Col lg={10} xl={9}>
-                <Select
+          <Card 
+          // className="pb-25" 
+          >
+
+            <div className="row-end">
+            <li className="f-10 mt-2x" >To</li>
+        
+            <Select
                   defaultValue="Present"
                   onChange={handleChange}
-                  className="select-item"
+                  className="select-item ml-2"
                   size="small"
                 >
                   <Option value="jack"> last week</Option>
                 </Select>
-              </Col>
+          
+                <li className="f-10 mt-2x ml-2">From</li>
 
-              <Col lg={4} xl={4} className="mt-2x">
-                <li className="f-10">From</li>
-              </Col>
 
-              <Col lg={7} xl={8}>
                 <Select
                   defaultValue="Inception"
                   onChange={handleChange}
-                  className="select-item"
+                  className="select-item ml-2"
                   size="small"
                 >
                   <Option value="jack"> last week</Option>
                 </Select>
-              </Col>
-            </Row>
+
+                </div>
+
 
             <Row gutter={8} className="pt-10">
               <Col md={5}>
@@ -240,7 +364,7 @@ const Audience = () => {
                 <h4>
                   40,344
                   <span>
-                    <p className="f-10 grey-color">Average Daily active User</p>
+                    <p className="f-12 grey-color">Average Daily active User</p>
                   </span>
                 </h4>
               </Col>
@@ -255,12 +379,12 @@ const Audience = () => {
                 </Button>
               </Col>
             </Row>
-          </Card>
-        </Col>
 
-        <Col md={6}>
-          <Card>
-            <Chart
+          </Card>
+
+         
+          <Card >
+            <MapChart
               chartType="GeoChart"
               width="100%"
               height="150px"
@@ -358,28 +482,40 @@ const Audience = () => {
               </Col>
             </Row>
           </Card>
-        </Col>
+    
+      </div>
 
-        <Col md={12} className="mt-2">
-          <Card>
+
+    <div className="grid-col">
+   
+    <Card>
             <Row gutter={32}>
               <Col md={24}>
                 <p className="f-16">Demography</p>
               </Col>
 
-              <Col md={10} lg={10} className="tolu">
-                <Chart
+              <Col lg={10} xl={10} xxl={12}  className="ptx10">
+                {/* <Chart
                   chartType="PieChart"
-                  width="300px"
+                  width="900px"
                   height="300px"
                   data={data3}
                   options={options3}
-                />
+                /> */}
+
+                <Chart
+              options={ChartState.options}
+              series={ChartState.series}
+              type="donut"
+              height="100%"
+              width="100%"
+            />
+
               </Col>
 
-              <Col md={2} lg={4} className="v-line mt-2"></Col>
+              <Col  lg={4} xxl={1} className="v-line mt-2"></Col>
 
-              <Col md={10} className="pt-10 mt-2 pl-2">
+              <Col md={10} xxl={10} className="pt-10 mt-2 pl-2">
                 <Row gutter={8} className="line">
                   <Col md={3}>
                     <div className="blue-box"></div>
@@ -438,30 +574,35 @@ const Audience = () => {
               </Col>
             </Row>
           </Card>
-        </Col>
 
-        <Col md={12} className="mt-2">
+
           <Card>
-            <Row>
+            <Row gutter={32}>
               <Col md={24}>
                 <p className="f-16">Gender</p>
               </Col>
 
-              <Col md={15}>
-                <Chart
+              <Col md={15} className="pt-5">
+                {/* <MapChart
                   chartType="ColumnChart"
-                  width="300px"
-                  height="300px"
+                  width="100%"
+                  height="100%"
                   data={data4}
-                  options={{
-                    legend: "none",
-                  }}
-                />
+                  options={options4}
+                /> */}
+
+                <Chart
+              options={ChartState1.options}
+              series={ChartState1.series}
+              type="bar"
+              height="130%"
+              width="100%"
+            />
               </Col>
 
               <Col md={9}>
                 <div className="line">
-                  <span className="m-end"> %</span>{" "}
+                  <span className="m-end"> %</span>
                 </div>
                 <Row gutter={8} className="line pt-2">
                   <Col md={3}>
@@ -518,8 +659,13 @@ const Audience = () => {
               </Col>
             </Row>
           </Card>
-        </Col>
-      </Row>
+    </div>
+
+
+
+      <Modal visible={visible} onCancel={handleCancel} footer={false}>
+        <Payment />
+      </Modal>
     </div>
   );
 };

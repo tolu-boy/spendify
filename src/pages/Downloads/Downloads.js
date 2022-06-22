@@ -272,18 +272,24 @@ const Downloads = () => {
 
             <div className="row-end">
             <Button shape="round" className="purple-button">
-                  Weekly
+                 Daily
                 </Button>
         
             <Button shape="round" className="pink-button ml-2">
-                  Monthly
+                   Weekly
                 </Button>
 
           
             <Button shape="round" className="pink-button ml-2">
-            Year to Date
+            Monthly
+                </Button>
+
+                <Button shape="round" className="pink-button ml-2">
+            Yearly
                 </Button>
                 </div>
+
+                
 
                 <Row className="pt-2" >
                   <Col md={24}>
