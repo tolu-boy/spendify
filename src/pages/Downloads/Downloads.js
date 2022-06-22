@@ -526,8 +526,8 @@ const Downloads = () => {
               options={ChartState.options}
               series={ChartState.series}
               type="donut"
-              height="120%"
-              width="120%"
+              height="100%"
+              width="100%"
             />
 
               </Col>
@@ -614,7 +614,7 @@ const Downloads = () => {
               options={ChartState1.options}
               series={ChartState1.series}
               type="bar"
-              height="150%"
+              height="100%"
               width="100%"
             />
               </Col>
