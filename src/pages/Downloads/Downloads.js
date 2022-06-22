@@ -129,6 +129,12 @@ const Downloads = () => {
 
   // const options4 = {
   //   legend: "none",
+  //   height: '120%',
+  //   width: '100%',
+  //   top: 1118,
+  //   left: 48,
+  //   right: 16,
+  //   bottom: 48
   // };
 
   const [visible, setVisible] = useState(false);
@@ -156,10 +162,14 @@ const Downloads = () => {
 
       dataLabels: {
         style: {
-          colors: ['#FFFFFF', '#FFFFFF', '#000000','#000000']
+          colors: ['#FFFFFF', '#FFFFFF', '#000000','#000000'],
+          fontSize: "10px",
+          fontFamily: "DINNeuzeitGrotesk-Light, sans-serif",
+          fontWeight: "bold"
         },
         dropShadow: {
           enabled: false,
+          
       }
       },
 
@@ -602,10 +612,10 @@ const Downloads = () => {
               </Col>
 
               <Col md={15} className="pt-5">
-                {/* <Chart
+                {/* <MapChart
                   chartType="ColumnChart"
-                  width="300px"
-                  height="300px"
+                  width="100%"
+                  height="100%"
                   data={data4}
                   options={options4}
                 /> */}
@@ -616,6 +626,7 @@ const Downloads = () => {
               type="bar"
               height="100%"
               width="100%"
+              className="rrrr"
             />
               </Col>
 
