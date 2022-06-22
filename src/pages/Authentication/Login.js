@@ -13,8 +13,8 @@ const Login = () => {
             <Image src={logo} preview={false} width={57} />
           </Col>
 
-          <Col md={15}>
-            <li className="login-header line2 "> MySpendify</li>
+          <Col md={13}>
+            <li className="login-header line2 ">Spendify</li>
             <li className="analytics">ANALYTICS</li>
           </Col>
         </Row>

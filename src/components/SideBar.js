@@ -17,10 +17,10 @@ const SideBar = () => {
               <Image src={logo} preview={false} width={25} />
             </Col>
             <Col md={15} className="pt7x">
-              <li className="white-color"> MySpendify</li>
+              <li className="white-color pl-2"> Spendify</li>
             </Col>
           </Row>
-          <li className="analytics-dashboard ">ANALYTICS</li>
+          <li className="analytics-dashboard">ANALYTICS</li>
 
           <ul className="nav">
             <li className="navlist">
@@ -62,26 +62,26 @@ const SideBar = () => {
                         <Link to="/behaviour/income">—Income </Link>
                       </li>
                     </Col>
-
+{/* 
                     <Col md={24} className="pt-2 f-12">
                       <li>
                         <Link to="/behaviour/bank-transaction">
                           —Bank transactions
                         </Link>
                       </li>
-                    </Col>
+                    </Col> */}
 
-                    <Col md={24} className="pt-2">
+                    {/* <Col md={24} className="pt-2">
                       <li>
                         <Link to="/behaviour/income-Expense-Ratio">
-                          —Income to Expense ratio{" "}
+                          —Income to Expense ratio
                         </Link>
                       </li>
-                    </Col>
+                    </Col> */}
 
                     <Col md={24} className="t-28">
                       <li>
-                        <Link to="/behaviour/budgeting">—Budgeting </Link>
+                        <Link to="/behaviour/income-Expense-Ratio">—Income to Expense ratio </Link>
                       </li>
                     </Col>
                   </Row>
@@ -105,7 +105,12 @@ const SideBar = () => {
         </div>
 
         <div className="main_content">
-          <Outlet />
+        
+          <Row justify="center">
+            <Col  lg={24} xl={24} xxl={24}>
+            <Outlet />
+            </Col>
+          </Row>
         </div>
       </div>
     </div>

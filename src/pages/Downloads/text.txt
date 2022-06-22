@@ -1,264 +1,33 @@
-import React, { useState, useEffect } from "react";
-import {
-  Row,
-  Col,
-  Card,
-  Button,
-  Select,
-  Image,
-  Divider,
-  Progress,
-  Modal,
-  
-} from "antd";
-import Rdownload from "../../images/r-download.svg";
+  <Row gutter={16} className="info">
+        <Col md={12}   style = {{height:"100%"}}>
+          <Card style = {{height:"100%"}} >
+            <Row justify="end">
+              <Col md={4}   
+              // xxl={{ span: 2, offset: 18 }}
+               xxl={2}
+               xl={3}
+              >
+                <Button shape="round" className="purple-button">
+                  Weekly
+                </Button>
+              </Col>
 
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
-  ArcElement,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
-import Chart  from "react-apexcharts";
+              <Col md={4}  xxl={2}   xl={3}>
+                <Button shape="round" className="pink-button">
+                  Monthly
+                </Button>
+              </Col>
 
-import { Chart as MapChart }  from "react-google-charts";
-import Header from "../../components/Header";
-import Payment from "../../components/Payment";
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
-  ArcElement
-);
+              <Col md={4}  xxl={2}   xl={3}>
+                <Button shape="round" className="pink-button">
+                  Year to Date
+                </Button>
+              </Col>
 
-
-const Downloads = () => {
-  const { Option } = Select;
-
-  const options = {
-    responsive: true,
-    interaction: {
-      mode: "index",
-      intersect: false,
-    },
-
-    stacked: false,
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-    scales: {
-      y: {
-        type: "linear",
-        display: true,
-        position: "left",
-      },
-    },
-  };
-
-  const labels = ["Jan", "Feb", "March", "Apr", "May", "Jun"];
-
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: "Dataset 1",
-        data: [110, 140, 44, 24, 77, 98, 45, 56, 66, 99, 88, 78, 300],
-        borderColor: "#F3E1EF",
-        pointBackgroundColor: "#6D3088",
-        fill: true,
-        backgroundColor: "#F3E1EF",
-        yAxisID: "y",
-      },
-    ],
-  };
-
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
-
-  const data1 = [
-    ["Country", "Popularity"],
-    ["Germany", 200],
-    ["United States", 300],
-    ["RU", 700],
-  ];
-
-  const options1 = {
-    // region: "002", // Africa
-    colorAxis: { colors: ["#828282", "#6D3088"] },
-    datalessRegionColor: "#828282",
-    defaultColor: "#828282",
-  };
-
-  // const data3 = [
-  //   ["Task", "Hours per Day"],
-  //   ["Work", 11],
-  //   ["Eat", 2],
-  //   ["Eats", 2],
-
-  //   ["Sleep", 7], // CSS-style declaration
-  // ];
-
-  // const options3 = {
-  //   pieHole: 0.4,
-  //   is3D: false,
-  //   legend: "none",
-  //   colors: ["#0C2A66", "#EE7301", "#007AFF", "#0CBEA9"],
-  // };
-
-  // const data4 = [
-  //   ["Element", "Density", { role: "style" }],
-  //   ["Female", 8.94, "#EE3C86"], // RGB value
-  //   ["Male", 10.49, "#007AFF"], // English color name
-  //   ["non-binary", 19.3, "#FF6B00"],
-  // ];
-
-  // const options4 = {
-  //   legend: "none",
-  // };
-
-  const [visible, setVisible] = useState(false);
-
-  const handleCancel = () => {
-    setVisible(false);
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      let pop_status = localStorage.getItem("pop_status");
-      if (!pop_status) {
-        setVisible(true);
-        localStorage.setItem("pop_status", true);
-      }
-    }, 2500);
-  }, []);
-
-
-  let ChartState = {
-    options: {
-      legend: {
-        show: false
-      },
-
-      dataLabels: {
-        style: {
-          colors: ['#FFFFFF', '#FFFFFF', '#000000','#000000']
-        },
-        dropShadow: {
-          enabled: false,
-      }
-      },
-
-      colors: ['#0C2A66', '#EE7301', '#007AFF','#0CBEA9']
-
-      
-    },
-
-
-    series: [44, 55, 41, 17, ],
-    labels: ['A', 'B', 'C', 'D']
-  }
-
-  let ChartState1 = {
-          
-    series: [{
-      name: 'PRODUCT A',
-      data: [44, 55, 41]
-    }, 
-    
-  ],
-    options: {
-
-      chart: {
-        type: 'bar',
-        height: "150%",
-        stacked: false,
-        toolbar: {
-          show: false
-        },
-
-       
-
-      plotOptions: {
-        bar: {
-          horizontal: false,
-          // borderRadius: 10
-          },
-         
-        },
-      },
-      
-      xaxis: {
-        type: 'String',
-        categories: ['Male', 'Female', 'Non binary',
-        ],
-        tickPlacement: 'on',
-      },
-
-      yaxis: { 
-        show: false,
-        labels: {
-          show: false,
-         
-      }
-    },
-      dataLabels: {
-        enabled: false,
-       
-      },
-
-      legend: {
-        show:false
-      },
-      fill: {
-        opacity: 10
-      },      
-
-
-   
-    plotOptions: {
-        bar: {
-            distributed: true, // this line is mandatory
-            horizontal: false,
-        },
-    },
-    colors: [ // this array contains different color code for each data
-        "#EE3C86",
-        "#007AFF",
-        "#FF6B00",
-    ],
-
-    },
-  
-   
-    
-  
-  };
-
-
-
-
-  return (
-    <div>
-      <Header title="Downloads" />
-    
-     <div className="grid-size info">
-      <Card >
-        
+              <Col md={24}  className="pt-2 ">
+                <Line options={options} data={data} />
+              </Col>
+            </Row>
 
             <div className="row-end">
             <Button shape="round" className="purple-button">
@@ -284,13 +53,14 @@ const Downloads = () => {
 
 
           </Card>
+        </Col>
 
-
+        <Col md={6} >
           <Card 
           // className="pb-25" 
-         
+          style = {{height:"100%"}}
           >
-            {/* <Row gutter={8} className="pl-15">
+            <Row gutter={8} className="pl-15">
               <Col lg={2} xl={2} className="mt-2x">
                 <li className="f-10 ">To</li>
               </Col>
@@ -320,34 +90,7 @@ const Downloads = () => {
                   <Option value="jack"> last week</Option>
                 </Select>
               </Col>
-            </Row> */}
-
-            <div className="row-end">
-            <li className="f-10 mt-2x" >To</li>
-        
-            <Select
-                  defaultValue="Present"
-                  onChange={handleChange}
-                  className="select-item ml-2"
-                  size="small"
-                >
-                  <Option value="jack"> last week</Option>
-                </Select>
-          
-                <li className="f-10 mt-2x ml-2">From</li>
-
-
-                <Select
-                  defaultValue="Inception"
-                  onChange={handleChange}
-                  className="select-item ml-2"
-                  size="small"
-                >
-                  <Option value="jack"> last week</Option>
-                </Select>
-
-                </div>
-
+            </Row>
 
             <Row gutter={8} className="pt-10">
               <Col md={5}>
@@ -398,12 +141,12 @@ const Downloads = () => {
                 </Button>
               </Col>
             </Row>
-
           </Card>
+        </Col>
 
-         
-          <Card >
-            <MapChart
+        <Col md={6} >
+          <Card style = {{height:"100%"}}>
+            <Chart
               chartType="GeoChart"
               width="100%"
               height="150px"
@@ -501,40 +244,28 @@ const Downloads = () => {
               </Col>
             </Row>
           </Card>
-    
-      </div>
+        </Col>
 
-
-    <div className="grid-col info">
-   
-    <Card>
+        {/* <Col md={12} className="mt-2">
+          <Card>
             <Row gutter={32}>
               <Col md={24}>
                 <p className="f-16">Demography</p>
               </Col>
 
-              <Col lg={10} xl={10} xxl={12}  className="ptx10">
-                {/* <Chart
+              <Col md={10} lg={10} className="tolu">
+                <Chart
                   chartType="PieChart"
-                  width="900px"
+                  width="300px"
                   height="300px"
                   data={data3}
                   options={options3}
-                /> */}
-
-                <Chart
-              options={ChartState.options}
-              series={ChartState.series}
-              type="donut"
-              height="120%"
-              width="120%"
-            />
-
+                />
               </Col>
 
-              <Col  lg={4} xxl={1} className="v-line mt-2"></Col>
+              <Col md={2} lg={4} className="v-line mt-2"></Col>
 
-              <Col md={10} xxl={10} className="pt-10 mt-2 pl-2">
+              <Col md={10} className="pt-10 mt-2 pl-2">
                 <Row gutter={8} className="line">
                   <Col md={3}>
                     <div className="blue-box"></div>
@@ -593,35 +324,28 @@ const Downloads = () => {
               </Col>
             </Row>
           </Card>
+        </Col>
 
-
+        <Col md={12} className="mt-2">
           <Card>
-            <Row gutter={32}>
+            <Row>
               <Col md={24}>
                 <p className="f-16">Gender</p>
               </Col>
 
-              <Col md={15} className="pt-5">
-                {/* <Chart
+              <Col md={15}>
+                <Chart
                   chartType="ColumnChart"
                   width="300px"
                   height="300px"
                   data={data4}
                   options={options4}
-                /> */}
-
-                <Chart
-              options={ChartState1.options}
-              series={ChartState1.series}
-              type="bar"
-              height="150%"
-              width="100%"
-            />
+                />
               </Col>
 
               <Col md={9}>
                 <div className="line">
-                  <span className="m-end"> %</span>
+                  <span className="m-end"> %</span>{" "}
                 </div>
                 <Row gutter={8} className="line pt-2">
                   <Col md={3}>
@@ -678,15 +402,5 @@ const Downloads = () => {
               </Col>
             </Row>
           </Card>
-    </div>
-
-
-
-      <Modal visible={visible} onCancel={handleCancel} footer={false}>
-        <Payment />
-      </Modal>
-    </div>
-  );
-};
-
-export default Downloads;
+        </Col> */}
+      </Row>

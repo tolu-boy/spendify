@@ -49,17 +49,7 @@ const GlobalStats = () => {
                     </Select>
                   </Col>
 
-                  <Col md={24} className="pt-2">
-                    <li className="pb-2">Select Location</li>
-                    <Select onChange={handleChange} className="globalSelect">
-                      <Option value="jack">Jack</Option>
-                      <Option value="lucy">Lucy</Option>
-                      <Option value="disabled" disabled>
-                        Disabled
-                      </Option>
-                      <Option value="Yiminghe">yiminghe</Option>
-                    </Select>
-                  </Col>
+                
 
                   <Col md={24} className="pt-2">
                     <li className="pb-2">Filter by behaviour</li>
