@@ -515,7 +515,7 @@ const Downloads = () => {
       </div>
 
 
-    <div className="grid-col info">
+    <div className="grid-col">
    
     <Card>
             <Row gutter={32}>
@@ -626,7 +626,6 @@ const Downloads = () => {
               type="bar"
               height="130%"
               width="100%"
-              className="rrrr"
             />
               </Col>
 
