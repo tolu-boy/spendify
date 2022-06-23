@@ -117,7 +117,7 @@ const GlobalStats = () => {
         </Col>
       </Row> */}
 
-       <Card className="m-a"   bodyStyle={{height:'100vh'}} type="inner">
+       <Card className="m-a" type="inner">
       <div className="grid-size">
 
       <div className="grid-5 ">
