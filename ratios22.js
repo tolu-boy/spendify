@@ -1,10 +1,8 @@
 import React from "react";
-import { Row, Col, Card, Button, Select, Image, Divider, Progress,Menu,Dropdown } from "antd";
+import { Row, Col, Card, Button, Select, Image, Divider, Progress } from "antd";
 import Rdownload from "../../images/r-download.svg";
-import { Chart as MapChart } from "react-google-charts";
+import { Chart } from "react-google-charts";
 import Header from "../../components/Header";
-import { DownOutlined } from "@ant-design/icons";
-
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -24,37 +22,26 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
-
 const IncomeToExpenseRatio = () => {
   const { Option } = Select;
 
-  const menu = (
-    <Menu
-      selectable
-      // defaultSelectedKeys={["3"]}
-      items={[
-        {
-          key: "1",
-          label: "Select Country",
-          disabled: true,
+  function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
 
-        },
-        {
-          key: "2",
-          label: "Chad",
-        },
-        {
-          key: "3",
-          label: "Usa",
-        },
-        {
-          key: "4",
-          label: "Ghana",
-        },
-      ]}
-    />
-  );
+  const data1 = [
+    ["Country", "Popularity"],
+    ["Germany", 200],
+    ["United States", 300],
+    ["RU", 700],
+  ];
+
+  const options1 = {
+    // region: "002", // Africa
+    colorAxis: { colors: ["#828282", "#6D3088"] },
+    datalessRegionColor: "#828282",
+    defaultColor: "#828282",
+  };
 
   const options = {
     responsive: true,
@@ -64,13 +51,13 @@ const IncomeToExpenseRatio = () => {
   };
 
   const labels = [
-    "Kaduna",
-    "Abuja",
-    "Lagos",
-    "Kebbi",
-    "Ogun",
-    "Ibadan",
-    "Others",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
   ];
 
   const data = {
@@ -88,24 +75,7 @@ const IncomeToExpenseRatio = () => {
       },
     ],
   };
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
 
-  const data1 = [
-    ["Country", "Popularity"],
-    ["Germany", 200],
-    ["United States", 300],
-    ["RU", 700],
-  ];
-
-  const options1 = {
-    colorAxis: { colors: ["#828282", "#6D3088"] },
-    datalessRegionColor: "#828282",
-    defaultColor: "#828282",
-  };
-
- 
   const labels2 = ["Male", "Female", "Non-binary"];
 
   const data2 = {
@@ -134,87 +104,74 @@ const IncomeToExpenseRatio = () => {
 
   return (
     <div>
-      <Header title="Behaviour"  />
-
-      <Row>
-          <Col md={5} className="pl-1">
-            <Dropdown overlay={menu}>
-              <h6 onClick={(e) => e.preventDefault()} className="pt-2  pl-2">
-              Ratios
-                <DownOutlined className="pl-1"/>
-              </h6>
-            </Dropdown>
-          </Col>
-
-        
-        </Row>
-    
-     <div className="grid-size info">
-      <Card >
-        
-            <div className="row-end">
-            
-            <p className="mr-auto pt-1">Expense to Income ratio</p>
-
-            <Button shape="round" className="purple-button">
-                 Daily
-                </Button>
-        
-            <Button shape="round" className="pink-button ml-2">
-                   Weekly
-                </Button>
-
-          
-            <Button shape="round" className="pink-button ml-2">
-            Monthly
-                </Button>
-
-                <Button shape="round" className="pink-button ml-2">
-            Yearly
-                </Button>
-                </div>
-
-                
-
-                <Row className="pt-2" >
-                  <Col md={24}>
-                  <Bar options={options} data={data} />
-
-                  </Col>
-                </Row>
-
-
-          </Card>
-
-
+      <Header title="Behaviour" />
+      <h6 className="pt2x  pl-2">  Ratios </h6>
+      <Row gutter={16} className="info-behaviour ">
+        <Col md={12}>
           <Card>
+            <Row>
+              <Col md={8} className="pt7x">
+                <p>Expense to Income ratio</p>
+              </Col>
 
-            <div className="row-end">
-            <li className="f-10 mt-2x" >To</li>
-        
-            <Select
+              <Col md={4} offset={4}>
+                <Button shape="round" className="purple-button">
+                  Weekly
+                </Button>
+              </Col>
+
+              <Col md={4}>
+                <Button shape="round" className="pink-button">
+                  Monthly
+                </Button>
+              </Col>
+
+              <Col md={4}>
+                <Button shape="round" className="pink-button">
+                  Year to Date
+                </Button>
+              </Col>
+
+              <Col md={24} className="pt-2 ">
+                <Bar options={options} data={data} />
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+
+        <Col md={6}>
+          <Card className="pb-25">
+            <Row gutter={8} className="pl-15">
+              <Col lg={2} xl={2} className="mt-2x">
+                <li className="f-10 ">To</li>
+              </Col>
+
+              <Col lg={10} xl={9}>
+                <Select
                   defaultValue="Present"
                   onChange={handleChange}
-                  className="select-item ml-2"
+                  className="select-item"
                   size="small"
                 >
                   <Option value="jack"> last week</Option>
                 </Select>
-          
-                <li className="f-10 mt-2x ml-2">From</li>
+              </Col>
 
+              <Col lg={4} xl={4} className="mt-2x">
+                <li className="f-10">From</li>
+              </Col>
 
+              <Col lg={7} xl={8}>
                 <Select
                   defaultValue="Inception"
                   onChange={handleChange}
-                  className="select-item ml-2"
+                  className="select-item"
                   size="small"
                 >
                   <Option value="jack"> last week</Option>
                 </Select>
-
-                </div>
-
+              </Col>
+            </Row>
 
             <Row gutter={8} className="pt-10">
               <Col md={5}>
@@ -223,8 +180,11 @@ const IncomeToExpenseRatio = () => {
 
               <Col md={14}>
                 <h4>
-                32%                  <span>
-                    <p className="f-12 grey-color">Total Expense : Total income </p>
+                  32%
+                  <span>
+                    <p className="f-12 grey-color">
+                      Total Expense : Total income{" "}
+                    </p>
                   </span>
                 </h4>
               </Col>
@@ -247,14 +207,14 @@ const IncomeToExpenseRatio = () => {
 
               <Col md={14}>
                 <h4>
-                45%
-                <span>
-                    <p className="f-12 grey-color">Average Expense : Income</p>
+                  45%
+                  <span>
+                    <p className="f-10 grey-color"> Average Expense : Income</p>
                   </span>
                 </h4>
               </Col>
 
-              <Col md={5} className="p ">
+              <Col md={5} className="">
                 <Button
                   size="small"
                   shape="round"
@@ -263,14 +223,13 @@ const IncomeToExpenseRatio = () => {
                   +262
                 </Button>
               </Col>
-
             </Row>
-
           </Card>
+        </Col>
 
-         
-          <Card >
-            <MapChart
+        <Col md={6}>
+          <Card>
+            <Chart
               chartType="GeoChart"
               width="100%"
               height="150px"
@@ -279,12 +238,9 @@ const IncomeToExpenseRatio = () => {
             />
 
             <Row gutter={16}>
-              <Col md={12} className="pt-2">
-                {/* <p className="f-14">Location</p> */}
+              <Col md={11} className="pt-2">
+                <p className="f-14">Location</p>
                 <Row>
-                  <Col md={24}>
-                    <p className="f-14">Location</p>
-                  </Col>
                   <Col md={20}>
                     <p className="f-12 grey-color">Russia</p>
                   </Col>
@@ -323,12 +279,12 @@ const IncomeToExpenseRatio = () => {
                 </Row>
               </Col>
 
-              <Col md={12} className="pt-2">
+              <Col md={13} className="pt-2">
                 <p className="purple-color pl-35">
-                  Country
+                  Country <span className="f-10 grey-color"> city</span>
                 </p>
+
                 <Row>
-                  <Col md={24}></Col>
                   <Col md={20}>
                     <p className="f-12 grey-color">China</p>
                   </Col>
@@ -368,70 +324,54 @@ const IncomeToExpenseRatio = () => {
               </Col>
             </Row>
           </Card>
-    
-      </div>
+        </Col>
 
+        <Col md={16} className="mt-2">
+          <Card>
+            <Row>
+              <Col md={8} className="pt7x">
+                <p> By Catergories</p>
+              </Col>
 
-    <div className="grid-col">
-    <Card>
-    <div className="row-end">
-            
-            <p className="mr-auto pt-1">By States</p>
-
-            <Button shape="round" className="purple-button">
-                 Daily
+              <Col md={3} offset={6}>
+                <Button shape="round" className="purple-button">
+                  Weekly
                 </Button>
-        
-            <Button shape="round" className="pink-button ml-2">
-                   Weekly
-                </Button>
+              </Col>
 
-          
-            <Button shape="round" className="pink-button ml-2">
-            Monthly
+              <Col md={3}>
+                <Button shape="round" className="pink-button">
+                  Monthly
                 </Button>
+              </Col>
 
-                <Button shape="round" className="pink-button ml-2">
-            Yearly
+              <Col md={3}>
+                <Button shape="round" className="pink-button">
+                  Year to Date
                 </Button>
-                </div>
-               
-               <Row>
-               <Col md={24} className="pt-2 ">
+              </Col>
+
+              <Col md={24} className="pt-2 ">
                 <Bar options={options} data={data} />
               </Col>
-               </Row>
-
-
+            </Row>
           </Card>
+        </Col>
 
-
+        <Col md={8} className="mt-2">
           <Card>
-          <div className="row-end">
-            
-            <p className="mr-auto pt-1">By Gender</p>
-
-            
-                </div>
-
-                <Row>
-               <Col md={24} className="pt-2">
-               <Bar options={options2} data={data2}  />
+            <Row>
+              <Col md={8} className="pt7x">
+                <p className="f-16"> By Gender</p>
               </Col>
-               </Row>
-           
+
+              <Col md={24} className="pt-2 ">
+                <Bar options={options2} data={data2} height={320} />
+              </Col>
+            </Row>
           </Card>
-    </div>
-
-
-   
-   
-
-    
-
-
-
-     
+        </Col>
+      </Row>
     </div>
   );
 };

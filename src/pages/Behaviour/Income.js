@@ -1,6 +1,19 @@
 import React from "react";
-import { Row, Col, Card, Button, Select, Image, Divider, Progress } from "antd";
+import {
+  Row,
+  Col,
+  Card,
+  Button,
+  Select,
+  Image,
+  Divider,
+  Progress,
+  Dropdown, 
+  Menu
+} from "antd";
 import Rdownload from "../../images/r-download.svg";
+import { DownOutlined } from "@ant-design/icons";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -14,7 +27,9 @@ import {
   ArcElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { Chart } from "react-google-charts";
+import Chart  from "react-apexcharts";
+
+import { Chart as MapChart }  from "react-google-charts";
 import Header from "../../components/Header";
 ChartJS.register(
   CategoryScale,
@@ -28,8 +43,36 @@ ChartJS.register(
   ArcElement
 );
 
-const Audience = () => {
+
+const Income = () => {
   const { Option } = Select;
+
+  const menu = (
+    <Menu
+      selectable
+      // defaultSelectedKeys={["3"]}
+      items={[
+        {
+          key: "1",
+          label: "Select Country",
+          disabled: true,
+
+        },
+        {
+          key: "2",
+          label: "Chad",
+        },
+        {
+          key: "3",
+          label: "Usa",
+        },
+        {
+          key: "4",
+          label: "Ghana",
+        },
+      ]}
+    />
+  );
 
   const options = {
     responsive: true,
@@ -82,105 +125,203 @@ const Audience = () => {
   ];
 
   const options1 = {
-    // region: "002", // Africa
     colorAxis: { colors: ["#828282", "#6D3088"] },
     datalessRegionColor: "#828282",
     defaultColor: "#828282",
   };
 
-  const data3 = [
-    ["Task", "Hours per Day"],
-    ["Work", 11],
-    ["Eat", 2],
-    ["Eats", 2],
+  let ChartState = {
+    options: {
+      legend: {
+        show: false
+      },
 
-    ["Sleep", 7], // CSS-style declaration
-  ];
+      dataLabels: {
+        style: {
+          colors: ['#FFFFFF', '#FFFFFF', '#000000','#000000'],
+          fontSize: "10px",
+          fontFamily: "DINNeuzeitGrotesk-Light, sans-serif",
+          fontWeight: "bold"
+        },
+        dropShadow: {
+          enabled: false,
+          
+      }
+      },
 
-  const options3 = {
-    pieHole: 0.4,
-    is3D: false,
-    legend: "none",
-    colors: ["#0C2A66", "#EE7301", "#007AFF", "#0CBEA9"],
+      colors: ['#0C2A66', '#EE7301', '#007AFF','#0CBEA9']
+
+      
+    },
+
+
+    series: [44, 55, 41, 17, ],
+    labels: ['A', 'B', 'C', 'D']
+  }
+
+  let ChartState1 = {
+          
+    series: [{
+      name: 'PRODUCT A',
+      data: [44, 55, 41]
+    }, 
+    
+  ],
+    options: {
+
+      chart: {
+        type: 'bar',
+        height: "150%",
+        stacked: false,
+        toolbar: {
+          show: false
+        },
+
+       
+
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          // borderRadius: 10
+          },
+         
+        },
+      },
+      
+      xaxis: {
+        type: 'String',
+        categories: ['Male', 'Female', 'Non binary',
+        ],
+        tickPlacement: 'on',
+      },
+
+      yaxis: { 
+        show: false,
+        labels: {
+          show: false,
+         
+      }
+    },
+      dataLabels: {
+        enabled: false,
+       
+      },
+
+      legend: {
+        show:false
+      },
+      fill: {
+        opacity: 10
+      },      
+
+
+   
+    plotOptions: {
+        bar: {
+            distributed: true, // this line is mandatory
+            horizontal: false,
+        },
+    },
+    colors: [ // this array contains different color code for each data
+        "#EE3C86",
+        "#007AFF",
+        "#FF6B00",
+    ],
+
+    },
+  
+   
+    
+  
   };
 
-  const data4 = [
-    ["Element", "Density", { role: "style" }],
-    ["Female", 8.94, "#EE3C86"], // RGB value
-    ["Male", 10.49, "#007AFF"], // English color name
-    ["non-binary", 19.3, "#FF6B00"],
-  ];
+  
 
   return (
     <div>
-      <Header title="Behaviour" />
-      <h6 className="pt2x  pl-2"> Income</h6>
-      <Row gutter={16} className="info-behaviour ">
-        <Col md={12}>
-          <Card>
-            <Row>
-              <Col md={6}>
-                <p>Saving Patterns</p>
-              </Col>
+      <Header title="Behaviour"  />
 
-              <Col md={4} offset={6}>
-                <Button shape="round" className="purple-button">
-                  Weekly
+      <Row>
+          <Col md={5} className="pl-1">
+            <Dropdown overlay={menu}>
+              <h6 onClick={(e) => e.preventDefault()} className="pt-2  pl-2">
+              Income
+                <DownOutlined className="pl-1"/>
+              </h6>
+            </Dropdown>
+          </Col>
+
+        
+        </Row>
+    
+     <div className="grid-size info">
+      <Card >
+        
+            <div className="row-end">
+            
+            <p className="mr-auto pt-1">Spending patterns</p>
+
+            <Button shape="round" className="purple-button">
+                 Daily
                 </Button>
-              </Col>
-
-              <Col md={4}>
-                <Button shape="round" className="pink-button">
-                  Monthly
+        
+            <Button shape="round" className="pink-button ml-2">
+                   Weekly
                 </Button>
-              </Col>
 
-              <Col md={4}>
-                <Button shape="round" className="pink-button">
-                  Year to Date
+          
+            <Button shape="round" className="pink-button ml-2">
+            Monthly
                 </Button>
-              </Col>
 
-              <Col md={24} className="pt-2 ">
-                <Line options={options} data={data} />
-              </Col>
-            </Row>
+                <Button shape="round" className="pink-button ml-2">
+            Yearly
+                </Button>
+                </div>
+
+                
+
+                <Row className="pt-2" >
+                  <Col md={24}>
+                  <Line options={options} data={data}  />
+
+                  </Col>
+                </Row>
+
+
           </Card>
-        </Col>
 
-        <Col md={6}>
-          <Card className="pb-25">
-            <Row gutter={8} className="pl-15">
-              <Col lg={2} xl={2} className="mt-2x">
-                <li className="f-10 ">To</li>
-              </Col>
 
-              <Col lg={10} xl={9}>
-                <Select
+          <Card 
+          // className="pb-25" 
+          >
+
+            <div className="row-end">
+            <li className="f-10 mt-2x" >To</li>
+        
+            <Select
                   defaultValue="Present"
                   onChange={handleChange}
-                  className="select-item"
+                  className="select-item ml-2"
                   size="small"
                 >
                   <Option value="jack"> last week</Option>
                 </Select>
-              </Col>
+          
+                <li className="f-10 mt-2x ml-2">From</li>
 
-              <Col lg={4} xl={4} className="mt-2x">
-                <li className="f-10">From</li>
-              </Col>
 
-              <Col lg={7} xl={8}>
                 <Select
                   defaultValue="Inception"
                   onChange={handleChange}
-                  className="select-item"
+                  className="select-item ml-2"
                   size="small"
                 >
                   <Option value="jack"> last week</Option>
                 </Select>
-              </Col>
-            </Row>
+
+                </div>
+
 
             <Row gutter={8} className="pt-10">
               <Col md={5}>
@@ -189,9 +330,9 @@ const Audience = () => {
 
               <Col md={14}>
                 <h4>
-                  500,053
+                N1,500,053
                   <span>
-                    <p className="f-12 grey-color">Total spending</p>
+                    <p className="f-12 grey-color">Total savings</p>
                   </span>
                 </h4>
               </Col>
@@ -214,14 +355,14 @@ const Audience = () => {
 
               <Col md={14}>
                 <h4>
-                  40,344
+                N500,344
                   <span>
-                    <p className="f-10 grey-color"> Average spending</p>
+                    <p className="f-12 grey-color">Average Savings</p>
                   </span>
                 </h4>
               </Col>
 
-              <Col md={5} className="">
+              <Col md={5} className="p ">
                 <Button
                   size="small"
                   shape="round"
@@ -230,13 +371,14 @@ const Audience = () => {
                   +262
                 </Button>
               </Col>
-            </Row>
-          </Card>
-        </Col>
 
-        <Col md={6}>
-          <Card>
-            <Chart
+            </Row>
+
+          </Card>
+
+         
+          <Card >
+            <MapChart
               chartType="GeoChart"
               width="100%"
               height="150px"
@@ -245,9 +387,12 @@ const Audience = () => {
             />
 
             <Row gutter={16}>
-              <Col md={11} className="pt-2">
-                <p className="f-14">Location</p>
+              <Col md={12} className="pt-2">
+                {/* <p className="f-14">Location</p> */}
                 <Row>
+                  <Col md={24}>
+                    <p className="f-14">Location</p>
+                  </Col>
                   <Col md={20}>
                     <p className="f-12 grey-color">Russia</p>
                   </Col>
@@ -286,12 +431,12 @@ const Audience = () => {
                 </Row>
               </Col>
 
-              <Col md={13} className="pt-2">
+              <Col md={12} className="pt-2">
                 <p className="purple-color pl-35">
-                  Country<span className="f-10 grey-color pl-2">city</span>
+                  Country
                 </p>
-
                 <Row>
+                  <Col md={24}></Col>
                   <Col md={20}>
                     <p className="f-12 grey-color">China</p>
                   </Col>
@@ -331,28 +476,39 @@ const Audience = () => {
               </Col>
             </Row>
           </Card>
-        </Col>
+    
+      </div>
 
-        <Col md={12} className="mt-2">
-          <Card>
-            <Row>
+
+    <div className="grid-col">
+        <Card>
+            <Row gutter={32}>
               <Col md={24}>
                 <p className="f-16">Demography</p>
               </Col>
 
-              <Col md={10}>
-                <Chart
+              <Col lg={10} xl={10} xxl={12}  className="ptx10">
+                {/* <Chart
                   chartType="PieChart"
-                  width="300px"
+                  width="900px"
                   height="300px"
                   data={data3}
                   options={options3}
-                />
+                /> */}
+
+                <Chart
+              options={ChartState.options}
+              series={ChartState.series}
+              type="donut"
+              height="100%"
+              width="100%"
+            />
+
               </Col>
 
-              <Col md={4} className="v-line mt-2"></Col>
+              <Col  lg={4} xxl={1} className="v-line mt-2"></Col>
 
-              <Col md={10} className="pt-10 mt-2 pl-2">
+              <Col md={10} xxl={10} className="pt-10 mt-2 pl-2">
                 <Row gutter={8} className="line">
                   <Col md={3}>
                     <div className="blue-box"></div>
@@ -411,30 +567,35 @@ const Audience = () => {
               </Col>
             </Row>
           </Card>
-        </Col>
 
-        <Col md={12} className="mt-2">
+
           <Card>
-            <Row>
+            <Row gutter={32}>
               <Col md={24}>
                 <p className="f-16">Gender</p>
               </Col>
 
-              <Col md={15}>
-                <Chart
+              <Col md={15} className="pt-5">
+                {/* <MapChart
                   chartType="ColumnChart"
-                  width="300px"
-                  height="300px"
+                  width="100%"
+                  height="100%"
                   data={data4}
-                  options={{
-                    legend: "none",
-                  }}
-                />
+                  options={options4}
+                /> */}
+
+                <Chart
+              options={ChartState1.options}
+              series={ChartState1.series}
+              type="bar"
+              height="130%"
+              width="100%"
+            />
               </Col>
 
               <Col md={9}>
                 <div className="line">
-                  <span className="m-end"> %</span>{" "}
+                  <span className="m-end"> %</span>
                 </div>
                 <Row gutter={8} className="line pt-2">
                   <Col md={3}>
@@ -491,10 +652,19 @@ const Audience = () => {
               </Col>
             </Row>
           </Card>
-        </Col>
-      </Row>
+    </div>
+
+
+   
+   
+
+    
+
+
+
+     
     </div>
   );
 };
 
-export default Audience;
+export default Income;

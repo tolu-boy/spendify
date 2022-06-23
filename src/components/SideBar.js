@@ -81,7 +81,7 @@ const SideBar = () => {
 
                     <Col md={24} className="t-28">
                       <li>
-                        <Link to="/behaviour/income-Expense-Ratio">—Income to Expense ratio </Link>
+                        <Link to="/behaviour/income-Expense-Ratio">—Ratios </Link>
                       </li>
                     </Col>
                   </Row>
