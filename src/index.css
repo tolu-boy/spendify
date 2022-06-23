@@ -405,7 +405,7 @@ li.navlist:hover {
 }
 
 .info {
-  padding: 2%;
+  padding: 1%;
 }
 
 .info-behaviour {
@@ -603,7 +603,7 @@ li.navlist:hover {
 }
 
 .grid-col{
-padding: 0 2%;
+padding: 0 1%;
 display: grid;
 grid-template-columns: repeat(12,1fr);
 column-gap: 1rem;
@@ -616,6 +616,15 @@ column-gap: 1rem;
 
 .grid-col :nth-child(2){
   grid-column: 7/13;
+}
+
+.grid-size.grid-1{
+  grid-column: 1/7;
+}
+
+.grid-size .grid-2{
+  grid-column: 7/13;
+
 }
 
 .ptx10{

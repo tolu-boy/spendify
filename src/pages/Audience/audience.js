@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Row,
   Col,
@@ -8,7 +8,6 @@ import {
   Image,
   Divider,
   Progress,
-  Modal,
   
 } from "antd";
 import Rdownload from "../../images/r-download.svg";
@@ -30,7 +29,6 @@ import Chart  from "react-apexcharts";
 
 import { Chart as MapChart }  from "react-google-charts";
 import Header from "../../components/Header";
-import Payment from "../../components/Payment";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -103,23 +101,7 @@ const Audience = () => {
     defaultColor: "#828282",
   };
 
- 
 
-  const [visible, setVisible] = useState(false);
-
-  const handleCancel = () => {
-    setVisible(false);
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      let pop_status = localStorage.getItem("pop_status");
-      if (!pop_status) {
-        setVisible(true);
-        localStorage.setItem("pop_status", true);
-      }
-    }, 2500);
-  }, []);
 
 
   let ChartState = {
@@ -393,7 +375,7 @@ const Audience = () => {
             />
 
             <Row gutter={16}>
-              <Col md={11} className="pt-2">
+              <Col md={12} className="pt-2">
                 {/* <p className="f-14">Location</p> */}
                 <Row>
                   <Col md={24}>
@@ -437,9 +419,9 @@ const Audience = () => {
                 </Row>
               </Col>
 
-              <Col md={13} className="pt-2">
+              <Col md={12} className="pt-2">
                 <p className="purple-color pl-35">
-                  Country<span className="f-10 grey-color pl-1">city</span>
+                  Country
                 </p>
                 <Row>
                   <Col md={24}></Col>
@@ -663,9 +645,7 @@ const Audience = () => {
 
 
 
-      <Modal visible={visible} onCancel={handleCancel} footer={false}>
-        <Payment />
-      </Modal>
+      
     </div>
   );
 };

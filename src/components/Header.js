@@ -35,7 +35,7 @@ const Header = ({ title, dropdown }) => {
 
 {!dropdown === true && (
   <Row>
-        <Col md={23} className="pl-2">
+        <Col md={23} className="pl-1">
           <p className="download-p"> {title}</p>
         </Col>
 
@@ -48,7 +48,7 @@ const Header = ({ title, dropdown }) => {
 
       {dropdown === true && (
         <Row>
-          <Col md={5} className="pl-2">
+          <Col md={5} className="pl-1">
             <Dropdown overlay={menu}>
               <p onClick={(e) => e.preventDefault()} className="download-p">
               {title}
