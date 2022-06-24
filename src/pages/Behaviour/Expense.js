@@ -136,6 +136,11 @@ const Expense = () => {
         show: false
       },
 
+      
+
+      chart: {
+        type: 'donut',
+      },
       dataLabels: {
         style: {
           colors: ['#FFFFFF', '#FFFFFF', '#000000','#000000'],
@@ -242,6 +247,10 @@ const Expense = () => {
 
       legend: {
         show: false
+      },
+
+      chart: {
+        type: 'pie',
       },
 
 

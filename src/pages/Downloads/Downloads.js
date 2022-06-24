@@ -174,7 +174,6 @@ const Downloads = () => {
 
       chart: {
         type: 'donut',
-        // height: "150%",
       },
 
       dataLabels: {

@@ -105,9 +105,15 @@ const Audience = () => {
 
 
   let ChartState = {
+
+   
     options: {
       legend: {
         show: false
+      },
+
+      chart: {
+        type: 'donut',
       },
 
       dataLabels: {
