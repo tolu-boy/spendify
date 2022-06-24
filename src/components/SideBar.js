@@ -13,7 +13,10 @@ const SideBar = () => {
       <div className="wrapper">
         <div className="sidebar p-3 pt-3">
           <Row className="spendify pb-2">
-            <Col md={5}>
+            <Col md={5} onClick={()=>{
+                          window.open('https://spendify.ca/', '_blank');
+
+            }}>
               <Image src={logo} preview={false} width={25} />
             </Col>
             <Col md={15} className="pt7x">

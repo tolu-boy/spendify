@@ -24,7 +24,9 @@ const SignUp = () => {
     <div>
       <section className="login-section">
         <Row className="m-20">
-          <Col md={6}>
+          <Col md={6} onClick={()=>{
+           window.open('https://spendify.ca/', '_blank');
+          }}>
             <Image src={logo} preview={false} width={53} />
           </Col>
 

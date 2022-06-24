@@ -248,11 +248,11 @@ const Expense = () => {
       legend: {
         show: false
       },
-
       chart: {
         type: 'pie',
       },
 
+      
 
       dataLabels: {
         style: {
@@ -266,10 +266,7 @@ const Expense = () => {
           
       }
     },
-      
-      chart: {
-        type: 'pie',
-      },
+    
       labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
       
       colors: ["#45843C", "#1F744B", "#0C876A", "#4A6D1C", "#4BB03C"],

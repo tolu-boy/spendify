@@ -117,7 +117,7 @@ const GlobalStats = () => {
         </Col>
       </Row> */}
 
-       <Card className="m-a" type="inner">
+       <Card className="m-a"   type="inner">
       <div className="grid-size">
 
       <div className="grid-5 ">
@@ -173,7 +173,7 @@ const GlobalStats = () => {
                     </Select>
                   </div>
 
-                  <div md={24} className="ptxxl">
+                  <div md={24} className="ptxxl pb-10">
                     <li className="pb-2">Spending category</li>
                     <Select onChange={handleChange} className="globalSelect">
                       <Option value="jack">Jack</Option>
