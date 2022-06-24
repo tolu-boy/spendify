@@ -161,6 +161,7 @@ const Downloads = () => {
         setVisible(true);
         localStorage.setItem("pop_status", true);
       }
+
     }, 2500);
   }, []);
 
@@ -169,6 +170,11 @@ const Downloads = () => {
     options: {
       legend: {
         show: false
+      },
+
+      chart: {
+        type: 'donut',
+        // height: "150%",
       },
 
       dataLabels: {
@@ -206,7 +212,7 @@ const Downloads = () => {
 
       chart: {
         type: 'bar',
-        height: "150%",
+        // height: "150%",
         stacked: false,
         toolbar: {
           show: false
