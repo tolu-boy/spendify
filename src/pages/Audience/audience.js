@@ -151,7 +151,7 @@ const Audience = () => {
 
       chart: {
         type: 'bar',
-        // height: "150%",
+        height: "150%",
         stacked: false,
         toolbar: {
           show: false
@@ -495,7 +495,7 @@ const Audience = () => {
               options={ChartState.options}
               series={ChartState.series}
               type="donut"
-              // height="100%"
+              height="100%"
               width="100%"
             />
 
@@ -583,7 +583,7 @@ const Audience = () => {
               options={ChartState1.options}
               series={ChartState1.series}
               type="bar"
-              // height="130%"
+              height="130%"
               width="100%"
             />
               </Col>
