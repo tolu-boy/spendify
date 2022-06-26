@@ -490,7 +490,7 @@ const Downloads = () => {
 
               <Col md={13} className="pt-2">
                 <p className="purple-color pl-35">
-                  Country<span className="f-10 grey-color pl-1">city</span>
+                  Country<span className="f-10 grey-color pl-1"></span>
                 </p>
                 <Row>
                   <Col md={24}></Col>
