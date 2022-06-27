@@ -51,7 +51,7 @@ const SideBar = () => {
                 </Col>
 
                 <Col md={18}>
-                  <li className="behaviour">Behaviour</li>
+                  <li className="behaviour pl-1">Behaviour</li>
 
                   <Row className="nav-drowpdown">
                     <Col md={24} className="pt-2">
