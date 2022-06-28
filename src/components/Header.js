@@ -48,16 +48,21 @@ const Header = ({ title, dropdown }) => {
 
       {dropdown === true && (
         <Row>
+
+        <Col md={3} className="pl-1">
+          <p className="download-p"> {title}</p>
+        </Col>
+
           <Col md={5} className="pl-1">
-            <Dropdown overlay={menu}>
+            <Dropdown overlay={menu} trigger={['click']}>
               <p onClick={(e) => e.preventDefault()} className="download-p">
-              {title}
+             Filter 
                 <DownOutlined />
               </p>
             </Dropdown>
           </Col>
 
-          <Col  md={1} offset={18}>
+          <Col  md={1} offset={15}>
           <Image src={downloads} preview={false} width={32} />
         </Col>
         </Row>

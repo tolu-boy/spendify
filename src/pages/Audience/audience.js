@@ -495,7 +495,7 @@ const Audience = () => {
               options={ChartState.options}
               series={ChartState.series}
               type="donut"
-              height="100%"
+              height="120%"
               width="100%"
             />
 

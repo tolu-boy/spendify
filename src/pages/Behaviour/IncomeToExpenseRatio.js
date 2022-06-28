@@ -137,10 +137,25 @@ const IncomeToExpenseRatio = () => {
       <Header title="Behaviour"  />
 
       <Row>
-          <Col md={5} className="pl-1">
+          {/* <Col md={5} className="pl-1">
             <Dropdown overlay={menu}>
               <h6 onClick={(e) => e.preventDefault()} className="pt-2  pl-2">
               Ratios
+                <DownOutlined className="pl-1"/>
+              </h6>
+            </Dropdown>
+          </Col> */}
+
+
+      <Col md={3} className="pl-1 pt2x">
+          <h6 className=""> Ratios </h6>
+        </Col>
+
+
+          <Col md={2} className="pl-1 pt2x">
+            <Dropdown overlay={menu} trigger={['click']} >
+              <h6 className="">
+             Filter
                 <DownOutlined className="pl-1"/>
               </h6>
             </Dropdown>

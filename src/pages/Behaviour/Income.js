@@ -247,10 +247,16 @@ const Income = () => {
       <Header title="Behaviour"  />
 
       <Row>
-          <Col md={5} className="pl-1">
-            <Dropdown overlay={menu}>
-              <h6 onClick={(e) => e.preventDefault()} className="pt-2  pl-2">
-              Income
+
+      <Col md={3} className="pl-1 pt2x">
+          <h6 className=""> Income </h6>
+        </Col>
+
+
+          <Col md={2} className="pl-1 pt2x">
+            <Dropdown overlay={menu} trigger={['click']} >
+              <h6 className="">
+             Filter
                 <DownOutlined className="pl-1"/>
               </h6>
             </Dropdown>
@@ -505,7 +511,7 @@ const Income = () => {
               options={ChartState.options}
               series={ChartState.series}
               type="donut"
-              height="100%"
+              height="120%"
               width="100%"
             />
 
