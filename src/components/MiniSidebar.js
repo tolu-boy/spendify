@@ -13,7 +13,7 @@ const MiniSidebar = ({ setIsopen, isOpen }) => {
   return (
     <div className="sidebarMini p-3 pt-3">
       <Row
-        gutter={[{ md: 8 }, { md: 32, lg: 32, xl: 32, xxl: 100 }]}
+        gutter={[{ md: 8 }, { md: 32, lg: 32, xl: 32, xxl: 80 }]}
         className="spendifyMini pb-2"
       >
         <Col
@@ -61,19 +61,19 @@ const MiniSidebar = ({ setIsopen, isOpen }) => {
             <Col md={24}  onClick={() => {
             navigate("/behaviour/expense");
           }}>
-              <p className="f-16 white-color"> Expense</p>
+              <p className="f-16 white-color pointer-cusor"> Expense</p>
             </Col>
 
             <Col md={24}  onClick={() => {
             navigate("/behaviour/income");
           }}>
-              <p className="f-16 white-color"> Income</p>
+              <p className="f-16 white-color pointer-cusor"> Income</p>
             </Col>
 
             <Col md={24} onClick={() => {
             navigate("/behaviour/income-Expense-Ratio");
           }}>
-              <p className="f-16 white-color"> Ratios</p>
+              <p className="f-16 white-color pointer-cusor"> Ratios</p>
             </Col>
 
             <Col md={24}>

@@ -308,6 +308,10 @@ div.orange-line {
   cursor: pointer;
 }
 
+.pointer-cusor{
+  cursor: pointer;
+}
+
 .card-body {
   background: #ffffff;
   box-shadow: 0px 4px 14px rgb(0 0 0 / 10%);
