@@ -53,7 +53,7 @@ const Header = ({ title, dropdown }) => {
           <p className="download-p"> {title}</p>
         </Col>
 
-          <Col md={5} className="pl-1">
+          <Col md={2} className="pl-1">
             <Dropdown overlay={menu} trigger={['click']}>
               <p onClick={(e) => e.preventDefault()} className="download-p">
              Filter 
@@ -62,7 +62,7 @@ const Header = ({ title, dropdown }) => {
             </Dropdown>
           </Col>
 
-          <Col  md={1} offset={15}>
+          <Col  md={1} offset={18}>
           <Image src={downloads} preview={false} width={32} />
         </Col>
         </Row>
