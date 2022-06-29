@@ -130,7 +130,7 @@ const SideBar = () => {
         
         
         
-        <div className="main_content" style={{marginLeft: isOpen ? '100px' : '200px'}}>
+        <div className="main_content" style={{marginLeft: isOpen ? '80px' : '200px'}}>
         
           <Row justify="center">
             <Col  lg={24} xl={24} xxl={24}>

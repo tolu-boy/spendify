@@ -32,7 +32,7 @@ const MiniSidebar = ({ setIsopen, isOpen }) => {
             window.open("https://spendify.ca/", "_blank");
           }}
         >
-          <Image src={logo} preview={false} width="80%" />
+          <Image src={logo} preview={false} width="1.5rem" />
         </Col>
 
         <Col
@@ -43,7 +43,7 @@ const MiniSidebar = ({ setIsopen, isOpen }) => {
 
           }}
         >
-          <Image src={overview} preview={false} width="80%" />
+          <Image src={overview} preview={false} width="1.5rem" />
         </Col>
 
         <Col
@@ -53,7 +53,7 @@ const MiniSidebar = ({ setIsopen, isOpen }) => {
             navigate("/audience");
           }}
         >
-          <Image src={tickets} preview={false} width="80%" />
+          <Image src={tickets} preview={false} width="1.5rem" />
         </Col>
 
         <Col md={24} xxl={24} className="p-0">
@@ -61,19 +61,19 @@ const MiniSidebar = ({ setIsopen, isOpen }) => {
             <Col md={24}  onClick={() => {
             navigate("/behaviour/expense");
           }}>
-              <p className="f-16 white-color pointer-cusor"> Expense</p>
+              <p className="f-12 white-color pointer-cusor"> Expense</p>
             </Col>
 
             <Col md={24}  onClick={() => {
             navigate("/behaviour/income");
           }}>
-              <p className="f-16 white-color pointer-cusor"> Income</p>
+              <p className="f-12 white-color pointer-cusor"> Income</p>
             </Col>
 
             <Col md={24} onClick={() => {
             navigate("/behaviour/income-Expense-Ratio");
           }}>
-              <p className="f-16 white-color pointer-cusor"> Ratios</p>
+              <p className="f-12 white-color pointer-cusor"> Ratios</p>
             </Col>
 
             <Col md={24}>
@@ -85,7 +85,7 @@ const MiniSidebar = ({ setIsopen, isOpen }) => {
         <Col md={24} onClick={() => {
             navigate("/global-stats");
           }} >
-          <Image src={bulb} preview={false} width="80%" />
+          <Image src={bulb} preview={false} width="1.5rem" />
         </Col>
       </Row>
 
