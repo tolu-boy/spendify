@@ -1,10 +1,10 @@
 import React from "react";
 import { Row, Col, Image, Divider } from "antd";
-import logo from "../images/s-logo.png";
+import logo from "../images/spendify-logo-wh.png";
 import overview from "../images/d-overview.svg";
 import tickets from "../images/tickets.svg";
 import bulb from "../images/bulb.svg";
-import { MenuUnfoldOutlined } from "@ant-design/icons";
+import { MenuUnfoldOutlined, PoweroffOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
 const MiniSidebar = ({ setIsopen, isOpen }) => {
@@ -87,6 +87,15 @@ const MiniSidebar = ({ setIsopen, isOpen }) => {
           }} >
           <Image src={bulb} preview={false} width="1.5rem" />
         </Col>
+
+
+        <Col md={24} onClick={() => {
+            navigate("/");
+          }} >
+        <PoweroffOutlined className="slide-menu"/>
+        </Col>
+
+
       </Row>
 
      

@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import { Row, Col, Image, Divider } from "antd";
-import logo from "../images/s-logo.png";
+import logo from "../images/spendify-logo-wh.png";
 import overview from "../images/d-overview.svg";
 import tickets from "../images/tickets.svg";
 import bulb from "../images/bulb.svg";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import MiniSidebar from "./MiniSidebar";
-import {MenuFoldOutlined } from "@ant-design/icons";
+import {MenuFoldOutlined,PoweroffOutlined } from "@ant-design/icons";
 
 const SideBar = () => {
   const [isOpen, setIsopen]  = useState(false)
@@ -34,7 +34,7 @@ const SideBar = () => {
              window.open('https://spendify.ca/', '_blank');
 
             }}>
-              <Image src={logo} preview={false} width={25} />
+              <Image src={logo} preview={false} width='85%' />
             </Col>
             <Col md={15} className="pt7x">
               <li className="white-color pl-2"> Spendify</li>
@@ -121,6 +121,17 @@ const SideBar = () => {
                 Global stats
               </Link>
             </li>
+
+            <li className="navlist">
+              <Link to="/">
+                <span className="pr-5">
+                <PoweroffOutlined />
+                </span>
+                LogOut
+              </Link>
+            </li>
+
+           
           </ul>
         </div>
         )
