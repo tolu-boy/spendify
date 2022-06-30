@@ -1,10 +1,16 @@
 import React from "react";
 import { Row, Col, Image, Divider } from "antd";
 import logo from "../images/spendify-logo-wh.png";
-import overview from "../images/d-overview.svg";
-import tickets from "../images/tickets.svg";
-import bulb from "../images/bulb.svg";
-import { MenuUnfoldOutlined, PoweroffOutlined } from "@ant-design/icons";
+import {
+  MenuUnfoldOutlined,
+  PoweroffOutlined,
+  FallOutlined,
+  RiseOutlined,
+  PieChartOutlined,
+  GlobalOutlined,
+  UsergroupAddOutlined,
+  DownloadOutlined,
+} from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
 const MiniSidebar = ({ setIsopen, isOpen }) => {
@@ -40,10 +46,9 @@ const MiniSidebar = ({ setIsopen, isOpen }) => {
           xxl={24}
           onClick={() => {
             navigate("/downloads");
-
           }}
         >
-          <Image src={overview} preview={false} width="1.5rem" />
+          <DownloadOutlined className="slide-menu" />
         </Col>
 
         <Col
@@ -53,52 +58,62 @@ const MiniSidebar = ({ setIsopen, isOpen }) => {
             navigate("/audience");
           }}
         >
-          <Image src={tickets} preview={false} width="1.5rem" />
+          <UsergroupAddOutlined className="slide-menu" />
         </Col>
 
-        <Col md={24} xxl={24} className="p-0">
-          <Row>
-            <Col md={24}  onClick={() => {
+        <Col
+          md={24}
+          xxl={24}
+          onClick={() => {
             navigate("/behaviour/expense");
-          }}>
-              <p className="f-12 white-color pointer-cusor"> Expense</p>
-            </Col>
+          }}
+        >
+          <RiseOutlined className="slide-menu" />
+        </Col>
 
-            <Col md={24}  onClick={() => {
+        <Col
+          md={24}
+          xxl={24}
+          onClick={() => {
             navigate("/behaviour/income");
-          }}>
-              <p className="f-12 white-color pointer-cusor"> Income</p>
-            </Col>
+          }}
+        >
+          <FallOutlined className="slide-menu" />
+        </Col>
 
-            <Col md={24} onClick={() => {
+        <Col
+          md={24}
+          xxl={24}
+          onClick={() => {
             navigate("/behaviour/income-Expense-Ratio");
-          }}>
-              <p className="f-12 white-color pointer-cusor"> Ratios</p>
-            </Col>
-
-            <Col md={24}>
-              <Divider className="nav-divided" />
-            </Col>
-          </Row>
+          }}
+        >
+          <PieChartOutlined className="slide-menu" />
         </Col>
 
-        <Col md={24} onClick={() => {
+        <Col md={24}>
+          <Divider className="nav-divided" />
+        </Col>
+
+        <Col
+          md={24}
+          xxl={24}
+          onClick={() => {
             navigate("/global-stats");
-          }} >
-          <Image src={bulb} preview={false} width="1.5rem" />
+          }}
+        >
+          <GlobalOutlined className="slide-menu" />
         </Col>
 
-
-        <Col md={24} onClick={() => {
+        <Col
+          md={24}
+          onClick={() => {
             navigate("/");
-          }} >
-        <PoweroffOutlined className="slide-menu"/>
+          }}
+        >
+          <PoweroffOutlined className="slide-menu" />
         </Col>
-
-
       </Row>
-
-     
     </div>
   );
 };

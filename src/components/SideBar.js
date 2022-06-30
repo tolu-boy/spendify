@@ -1,13 +1,11 @@
 import React, {useState} from "react";
 import { Row, Col, Image, Divider } from "antd";
 import logo from "../images/spendify-logo-wh.png";
-import overview from "../images/d-overview.svg";
-import tickets from "../images/tickets.svg";
 import bulb from "../images/bulb.svg";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import MiniSidebar from "./MiniSidebar";
-import {MenuFoldOutlined,PoweroffOutlined } from "@ant-design/icons";
+import { MenuFoldOutlined, PoweroffOutlined,GlobalOutlined,UsergroupAddOutlined,DownloadOutlined } from "@ant-design/icons";
 
 const SideBar = () => {
   const [isOpen, setIsopen]  = useState(false)
@@ -46,7 +44,8 @@ const SideBar = () => {
             <li className="navlist">
               <Link to="/downloads">
                 <span className="pr-5">
-                  <Image src={overview} preview={false} width={14} />
+                  <DownloadOutlined className="slide-menu" />
+
                 </span>
                 Downloads
               </Link>
@@ -55,13 +54,14 @@ const SideBar = () => {
             <li className="navlist">
               <Link to="/audience">
                 <span className="pr-5">
-                  <Image src={tickets} preview={false} width={14} />
+                  <UsergroupAddOutlined className="slide-menu" />
+
                 </span>
                 Audience
               </Link>
             </li>
 
-            <div className="navlist">
+            <div className="navlist pl-2">
               <Row>
                 <Col md={3}>
                   <Image src={bulb} preview={false} width={14} />
@@ -113,19 +113,31 @@ const SideBar = () => {
               <Divider className="nav-divided" />
             </li>
 
-            <li className="navlist pt-2 mt-2">
+            {/* <li className="navlist pt-2 mt-2">
               <Link to="/global-stats">
                 <span className="pr-2">
                   <Image src={bulb} preview={false} width={14} />
+
                 </span>
                 Global stats
+              </Link>
+            </li> */}
+
+
+            <li className="navlist">
+              <Link to="/global-stats">
+                <span className="pr-5">
+                  <GlobalOutlined className="slide-menu" />
+                  </span>
+                  Global stats
+
               </Link>
             </li>
 
             <li className="navlist">
               <Link to="/">
                 <span className="pr-5">
-                <PoweroffOutlined />
+                <PoweroffOutlined  className="slide-menu" />
                 </span>
                 LogOut
               </Link>
