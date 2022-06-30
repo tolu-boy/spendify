@@ -1,35 +1,14 @@
 import React from "react";
-import { Row, Col, Image, Dropdown, Menu } from "antd";
+import { Row, Col, Image ,Select} from "antd";
 import downloads from "../images/downloads.svg";
-import { DownOutlined } from "@ant-design/icons";
 
 const Header = ({ title, dropdown }) => {
-  const menu = (
-    <Menu
-      selectable
-      // defaultSelectedKeys={["3"]}
-      items={[
-        {
-          key: "1",
-          label: "Select Country",
-          disabled: true,
+  const { Option } = Select;
 
-        },
-        {
-          key: "2",
-          label: "Chad",
-        },
-        {
-          key: "3",
-          label: "Usa",
-        },
-        {
-          key: "4",
-          label: "Ghana",
-        },
-      ]}
-    />
-  );
+  function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
+
   return (
     <div className="header">
 
@@ -53,16 +32,28 @@ const Header = ({ title, dropdown }) => {
           <p className="download-p"> {title}</p>
         </Col>
 
-          <Col md={2} className="pl-1">
-            <Dropdown overlay={menu} trigger={['click']}>
-              <p onClick={(e) => e.preventDefault()} className="download-p">
-             Filter 
-                <DownOutlined />
-              </p>
-            </Dropdown>
+
+          <Col md={3} className="pl-1 mtl2">
+          <Select
+                  defaultValue="Filter"
+                  onChange={handleChange}
+                  className="select-item purple-select"
+                  // size="small"
+                >
+                 <Option value="disabled" disabled>
+        Pick Country
+      </Option>
+                  <Option value="jack">Ghana</Option>
+                  <Option value="jackw"> America</Option>
+                  <Option value="jacke"> Russia</Option>
+                  <Option value="jack2"> Ukraine</Option>
+
+                </Select>
           </Col>
 
-          <Col  md={1} offset={18}>
+          
+
+          <Col  md={1} offset={17}>
           <Image src={downloads} preview={false} width={32} />
         </Col>
         </Row>

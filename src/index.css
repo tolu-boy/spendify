@@ -157,6 +157,10 @@ li {
   margin-top: -15px;
 }
 
+.mtl2{
+  margin-top: 0.2%;
+}
+
 .f-12 {
   font-size: clamp(0.5rem, 0.75rem, 0.75rem);
 }
@@ -235,6 +239,13 @@ div.orange-line {
   margin-top: 15px;
 }
 
+.uppercase{
+  text-transform: uppercase; 
+}
+
+.letter-space{
+   letter-spacing: 2px;
+}
 .analytics {
   font-family: "Mulish";
   font-style: normal;
@@ -457,9 +468,38 @@ li.navlist:hover {
   font-size: 9px;
 }
 
+
+.purple-select.select-item.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: 162px;
+  background: #6d3088;
+  font-size: 9px;
+  color: #ffffff;
+  width: 120px;
+}
+
+
+
+
+.purple-select .ant-select:hover .ant-select-selector {
+  border-color: #6d3088 !important;
+  box-shadow: none !important;
+}
+
+
+.purple-select .ant-select-selector {
+  border-color: #6d3088 !important;
+  box-shadow: none !important;
+}
+
+
 .ant-select-arrow {
   color: #313131;
   font-size: 9px;
+}
+
+.purple-select .ant-select-arrow{
+  font-size: 9px;
+  color: #ffffff;
 }
 
 .green-button {
@@ -692,6 +732,9 @@ padding-left: 2%;
     font-size: 1.5rem;
     color: white;
 }
+
+
+
 
 .ant-dropdown-hidden, .ant-dropdown-menu-hidden, .ant-dropdown-menu-submenu-hidden {
  max-width: 10% !important; 

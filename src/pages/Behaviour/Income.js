@@ -8,11 +8,8 @@ import {
   Image,
   Divider,
   Progress,
-  Dropdown, 
-  Menu
 } from "antd";
 import Rdownload from "../../images/r-download.svg";
-import { DownOutlined } from "@ant-design/icons";
 
 import {
   Chart as ChartJS,
@@ -47,32 +44,7 @@ ChartJS.register(
 const Income = () => {
   const { Option } = Select;
 
-  const menu = (
-    <Menu
-      selectable
-      // defaultSelectedKeys={["3"]}
-      items={[
-        {
-          key: "1",
-          label: "Select Country",
-          disabled: true,
-
-        },
-        {
-          key: "2",
-          label: "Chad",
-        },
-        {
-          key: "3",
-          label: "Usa",
-        },
-        {
-          key: "4",
-          label: "Ghana",
-        },
-      ]}
-    />
-  );
+  
 
   const options = {
     responsive: true,
@@ -254,12 +226,20 @@ const Income = () => {
 
 
           <Col md={2} className="pl-1 pt2x">
-            <Dropdown overlay={menu} trigger={['click']} >
-              <h6 className="">
-             Filter
-                <DownOutlined className="pl-1"/>
-              </h6>
-            </Dropdown>
+          <Select
+                  defaultValue="Filter"
+                  onChange={handleChange}
+                  className="select-item purple-select uppercase letter-space"
+                >
+                 <Option value="disabled" disabled>
+        Pick Country
+      </Option>
+                  <Option value="jack">Ghana</Option>
+                  <Option value="jackw"> America</Option>
+                  <Option value="jacke"> Russia</Option>
+                  <Option value="jack2"> Ukraine</Option>
+
+                </Select>
           </Col>
 
         

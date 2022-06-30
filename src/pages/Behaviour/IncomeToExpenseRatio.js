@@ -1,9 +1,8 @@
 import React from "react";
-import { Row, Col, Card, Button, Select, Image, Divider, Progress,Menu,Dropdown } from "antd";
+import { Row, Col, Card, Button, Select, Image, Divider, Progress} from "antd";
 import Rdownload from "../../images/r-download.svg";
 import { Chart as MapChart } from "react-google-charts";
 import Header from "../../components/Header";
-import { DownOutlined } from "@ant-design/icons";
 
 import {
   Chart as ChartJS,
@@ -29,32 +28,7 @@ ChartJS.register(
 const IncomeToExpenseRatio = () => {
   const { Option } = Select;
 
-  const menu = (
-    <Menu
-      selectable
-      // defaultSelectedKeys={["3"]}
-      items={[
-        {
-          key: "1",
-          label: "Select Country",
-          disabled: true,
-
-        },
-        {
-          key: "2",
-          label: "Chad",
-        },
-        {
-          key: "3",
-          label: "Usa",
-        },
-        {
-          key: "4",
-          label: "Ghana",
-        },
-      ]}
-    />
-  );
+ ;
 
   const options = {
     responsive: true,
@@ -153,12 +127,20 @@ const IncomeToExpenseRatio = () => {
 
 
           <Col md={2} className="pl-1 pt2x">
-            <Dropdown overlay={menu} trigger={['click']} >
-              <h6 className="">
-             Filter
-                <DownOutlined className="pl-1"/>
-              </h6>
-            </Dropdown>
+          <Select
+                  defaultValue="Filter"
+                  onChange={handleChange}
+                  className="select-item purple-select uppercase letter-space"
+                >
+                 <Option value="disabled" disabled>
+        Pick Country
+      </Option>
+                  <Option value="jack">Ghana</Option>
+                  <Option value="jackw"> America</Option>
+                  <Option value="jacke"> Russia</Option>
+                  <Option value="jack2"> Ukraine</Option>
+
+                </Select>
           </Col>
 
         
