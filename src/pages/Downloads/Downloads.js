@@ -189,6 +189,7 @@ const Downloads = () => {
       }
       },
 
+
       colors: ['#0C2A66', '#EE7301', '#007AFF','#0CBEA9']
 
       
@@ -217,7 +218,7 @@ const Downloads = () => {
           show: false
         },
 
-       
+     
 
       plotOptions: {
         bar: {
@@ -558,7 +559,7 @@ const Downloads = () => {
               options={ChartState.options}
               series={ChartState.series}
               type="donut"
-              height="110%"
+              height="107%"
               width="100%"
             />
 
