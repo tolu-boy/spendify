@@ -542,7 +542,7 @@ const Downloads = () => {
     <Card>
             <Row gutter={32}>
               <Col md={24}>
-                <p className="f-16">Demography</p>
+                <p className="f-18">Demography</p>
               </Col>
 
               <Col lg={10} xl={10} xxl={12}  className="ptx10">
@@ -630,7 +630,7 @@ const Downloads = () => {
           <Card>
             <Row gutter={32}>
               <Col md={24}>
-                <p className="f-16">Gender</p>
+                <p className="f-18">Gender</p>
               </Col>
 
               <Col md={15} className="pt-5">

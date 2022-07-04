@@ -121,7 +121,7 @@ const GlobalStats = () => {
       <div className="grid-size">
 
       <div className="grid-5 ">
-      <p className="ml-2 pt-2">Filter by:</p>
+      <p className="ml-2 pt-2 f-16">Filter by:</p>
        <Divider className="card-divider" />
        <div >
                     <li className="pb-2">Select Location</li>

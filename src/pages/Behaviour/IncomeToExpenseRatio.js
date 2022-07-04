@@ -151,7 +151,7 @@ const IncomeToExpenseRatio = () => {
         
             <div className="row-end">
             
-            <p className="mr-auto pt-1">Expense to Income ratio</p>
+            <p className="mr-auto pt-1 f-16">Expense to Income ratio</p>
 
             <Button shape="round" className="purple-button">
                  Daily
@@ -373,7 +373,7 @@ const IncomeToExpenseRatio = () => {
     <Card>
     <div className="row-end">
             
-            <p className="mr-auto pt-1">By States</p>
+            <p className="mr-auto pt-1 f-16">By States</p>
 
             <Button shape="round" className="purple-button">
                  Daily
@@ -406,7 +406,7 @@ const IncomeToExpenseRatio = () => {
           <Card>
           <div className="row-end">
             
-            <p className="mr-auto pt-1">By Gender</p>
+            <p className="mr-auto pt-1 f-16">By Gender</p>
 
             
                 </div>

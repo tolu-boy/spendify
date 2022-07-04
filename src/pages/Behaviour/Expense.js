@@ -283,7 +283,7 @@ const Expense = () => {
         
             <div className="row-end">
             
-            <p className="mr-auto pt-1">Spending patterns</p>
+            <p className="mr-auto pt-1 f-16">Spending patterns</p>
 
             <Button shape="round" className="purple-button">
                  Daily
@@ -508,7 +508,7 @@ const Expense = () => {
         <Card>
             <Row gutter={32}>
               <Col md={24}>
-                <p className="f-16">Demography</p>
+                <p className="f-18">Demography</p>
               </Col>
 
               <Col lg={10} xl={10} xxl={12}  className="ptx10">
@@ -596,7 +596,7 @@ const Expense = () => {
           <Card>
             <Row gutter={32}>
               <Col md={24}>
-                <p className="f-16">Gender</p>
+                <p className="f-18">Gender</p>
               </Col>
 
               <Col md={15} className="pt-5">
@@ -684,7 +684,7 @@ const Expense = () => {
         
             <div className="row-end">
             
-            <p className="mr-auto pt-1">Average spend</p>
+            <p className="mr-auto pt-1 f-16">Average spend</p>
 
             <Button shape="round" className="purple-button">
                  Daily
@@ -720,7 +720,7 @@ const Expense = () => {
           <Card className="grid-2">
             <Row>
               <Col md={24}>
-                <p className="f-16">Categories</p>
+                <p className="f-18">Categories</p>
               </Col>
 
               <Col md={10} className="pt-5">

@@ -15,7 +15,7 @@ const Header = ({ title, dropdown }) => {
 {!dropdown === true && (
   <Row>
         <Col md={23} className="pl-1">
-          <p className="download-p"> {title}</p>
+          <p className="download-p "> {title}</p>
         </Col>
 
         <Col md={1}>
