@@ -249,7 +249,7 @@ div.orange-line {
 }
 
 .letter-space{
-   letter-spacing: 2px;
+     letter-spacing: 2px;
 }
 .analytics {
   font-family: "Mulish";
@@ -383,27 +383,20 @@ div.orange-line {
 
 .wrapper .sidebar ul li {
   font-size: 14px;
-  padding-bottom: 25%;
-}
+  padding-bottom: 20%;
+ }
 
 .wrapper .sidebar ul li a {
   color: #a4a6b3;
 }
-
-/* li.navlist:hover {
-  color: rgba(255, 255, 255, 0.04); 
-  border-left: 2px solid #dde2ff;
-  padding-left: 2%; 
-   color: red
-
-} */
-
-/* .wrapper .sidebar ul li a:hover{
-  color: #393d57
-
-} */
 /* 
-.nav-drowpdown li a:hover {
+li.navlist:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 2px solid #dde2ff; 
+   padding-left: 2%;
+} */
+
+/* .nav-drowpdown li a:hover {
   background: rgba(255, 255, 255, 0.04);
   border-left: 2px solid #dde2ff;
   padding: 1%;
@@ -776,6 +769,11 @@ padding-left: 2%;
     font-size: 1.5rem;
     color: #9FA2B4 !important;  
     padding: 0;
+    }
+
+
+    .wrapper .sidebar ul li {
+      padding-bottom: 30%;
     }
 }
 

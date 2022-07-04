@@ -524,7 +524,7 @@ const Expense = () => {
               options={ChartState.options}
               series={ChartState.series}
               type="donut"
-              height="120%"
+              height="110%"
               width="100%"
             />
 
