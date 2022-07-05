@@ -53,12 +53,12 @@ const IncomeToExpenseRatio = () => {
       {
         label: "Dataset 1",
         data: [220, 220, 100, 250, 180, 300, 230],
-        backgroundColor: "#007AFF",
+        backgroundColor: "#DDE8DA",
       },
       {
         label: "Dataset 2",
         data: [150, 150, 100, 150, 130, 230, 130],
-        backgroundColor: "#F14055",
+        backgroundColor: "#F3E1EF",
       },
     ],
   };
@@ -88,12 +88,12 @@ const IncomeToExpenseRatio = () => {
       {
         label: "Dataset 1",
         data: [220, 220, 200],
-        backgroundColor: "#007AFF",
+        backgroundColor: "#DDE8DA",
       },
       {
         label: "Dataset 2",
         data: [150, 150, 100],
-        backgroundColor: "#F14055",
+        backgroundColor: "#F3E1EF",
       },
     ],
   };
