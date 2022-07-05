@@ -108,18 +108,9 @@ const IncomeToExpenseRatio = () => {
 
   return (
     <div>
-      <Header title="Behaviour"  />
+      <Header title="Ratios"  dropdown={true} />
 
-      <Row>
-          {/* <Col md={5} className="pl-1">
-            <Dropdown overlay={menu}>
-              <h6 onClick={(e) => e.preventDefault()} className="pt-2  pl-2">
-              Ratios
-                <DownOutlined className="pl-1"/>
-              </h6>
-            </Dropdown>
-          </Col> */}
-
+      {/* <Row>
 
       <Col md={3} className="pl-1 pt2x">
           <h6 className=""> Ratios </h6>
@@ -144,7 +135,7 @@ const IncomeToExpenseRatio = () => {
           </Col>
 
         
-        </Row>
+        </Row> */}
     
      <div className="grid-size info">
       <Card >

@@ -249,9 +249,9 @@ const Expense = () => {
 
   return (
     <div>
-      <Header title="Behaviour"  />
+      <Header title="Expense"  dropdown={true} />
 
-      <Row>
+      {/* <Row>
 
       <Col md={3} className="pl-1 pt2x">
           <h6 className=""> Expense </h6>
@@ -276,7 +276,7 @@ const Expense = () => {
           </Col>
 
         
-        </Row>
+        </Row> */}
     
      <div className="grid-size info">
       <Card >

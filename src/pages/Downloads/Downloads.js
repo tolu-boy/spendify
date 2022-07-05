@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import {
   Row,
   Col,
@@ -137,7 +137,7 @@ const Downloads = () => {
   //   bottom: 48
   // };
 
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   
 
@@ -154,16 +154,16 @@ const Downloads = () => {
   }
 
 
-  useEffect(() => {
-    setTimeout(() => {
-      let pop_status = localStorage.getItem("pop_status");
-      if (!pop_status) {
-        setVisible(true);
-        localStorage.setItem("pop_status", true);
-      }
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     let pop_status = localStorage.getItem("pop_status");
+  //     if (!pop_status) {
+  //       setVisible(true);
+  //       localStorage.setItem("pop_status", true);
+  //     }
 
-    }, 2500);
-  }, []);
+  //   }, 2500);
+  // }, []);
 
 
   let ChartState = {
