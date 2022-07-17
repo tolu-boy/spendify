@@ -559,8 +559,8 @@ const Downloads = () => {
               options={ChartState.options}
               series={ChartState.series}
               type="donut"
-              height="107%"
-              width="100%"
+              // height="107%"
+              width="117%"
             />
 
               </Col>

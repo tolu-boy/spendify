@@ -8,7 +8,7 @@ import MiniSidebar from "./MiniSidebar";
 import { MenuFoldOutlined, PoweroffOutlined,GlobalOutlined,UsergroupAddOutlined,DownloadOutlined } from "@ant-design/icons";
 
 const SideBar = () => {
-  const [isOpen, setIsopen]  = useState(false)
+  const [isOpen, setIsopen]  = useState(true)
   return (
     <div>
       <div className="wrapper">
