@@ -112,6 +112,18 @@ const Audience = () => {
         show: false
       },
 
+      noData: {  
+        text: "Loading...",  
+        align: 'center',  
+        verticalAlign: 'middle',  
+        offsetX: 0,  
+        offsetY: 0,  
+        style: {  
+          color: "#000000",  
+          fontSize: '14px',  
+          fontFamily: "Helvetica"  
+        }  
+      },
       chart: {
         type: 'donut',
       },
