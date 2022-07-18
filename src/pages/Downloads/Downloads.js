@@ -31,6 +31,8 @@ import Chart  from "react-apexcharts";
 import { Chart as MapChart }  from "react-google-charts";
 import Header from "../../components/Header";
 import Payment from "../../components/Payment";
+import { PieChart, Pie, Cell,ResponsiveContainer } from "recharts";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -166,6 +168,35 @@ const Downloads = () => {
   // }, []);
 
 
+  const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+  cx,
+  cy,
+  midAngle,
+  innerRadius,
+  outerRadius,
+  percent,
+  index
+}) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+  return (
+    <text
+      x={x}
+      y={y}
+      fill="red"
+      textAnchor={x > cx ? "start" : "end"}
+      dominantBaseline="central"
+      // width={33}
+    >
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
+const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+
   let ChartState = {
     options: {
       legend: {
@@ -277,7 +308,12 @@ const Downloads = () => {
   };
 
 
-
+  const data11 = [
+    { name: "Group A", value: 400 },
+    { name: "Group B", value: 300 },
+    { name: "Group C", value: 300 },
+    { name: "Group D", value: 200 }
+  ];
 
   return (
     <div>
@@ -555,13 +591,28 @@ const Downloads = () => {
                   options={options3}
                 /> */}
 
-                <Chart
+                {/* <Chart
               options={ChartState.options}
               series={ChartState.series}
               type="donut"
-              // height="107%"
-              width="117%"
-            />
+              height="107%"
+              width="100%"
+            /> */}
+
+            <div >
+      <ResponsiveContainer minWidth={300} width="100%"  aspect={1} >
+        <PieChart>
+          <Pie dataKey="value"
+           data={data11} fill="#8884d8"
+            labelLine={false}
+            innerRadius={40}
+            label={renderCustomizedLabel}
+             />
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
+    
+    
 
               </Col>
 
