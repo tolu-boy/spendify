@@ -108,9 +108,6 @@ const Audience = () => {
 
    
     options: {
-      legend: {
-        show: false
-      },
 
       noData: {  
         text: "Loading...",  
@@ -124,6 +121,11 @@ const Audience = () => {
           fontFamily: "Helvetica"  
         }  
       },
+      legend: {
+        show: false
+      },
+
+   
       chart: {
         type: 'donut',
       },
