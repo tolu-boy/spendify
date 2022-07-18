@@ -318,21 +318,23 @@ const renderCustomizedLabel = ({
   ];
 
   const data12 = [
-    {
-      name: "Male",
-      uv: 150,
-      color: '#EE7301'
-    },
+
     {
       name: "Female",
       uv: 100,
-      color: '#007AFF'
+      color: '#EE3B86'
   
     },
     {
+      name: "Male",
+      uv: 150,
+      color: '#007AFF'
+    },
+  
+    {
       name: "Non binary",
       uv: 70,
-      color: '"#0CBEA9'
+      color: '#FF6B00'
   
     },
   
@@ -765,7 +767,7 @@ const renderCustomizedLabel = ({
                 </div>
                 <Row gutter={8} className="line pt-2">
                   <Col md={3}>
-                    <div className="blue-box"></div>
+                    <div className="dark-box"></div>
                   </Col>
                   <Col md={10}>
                     <p> Male</p>
