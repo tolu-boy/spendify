@@ -25,10 +25,20 @@ import {
   ArcElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import Chart  from "react-apexcharts";
 
 import { Chart as MapChart }  from "react-google-charts";
 import Header from "../../components/Header";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+} from "recharts";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -102,132 +112,52 @@ const Audience = () => {
   };
 
 
+  const RADIAN = Math.PI / 180;
+  const renderCustomizedLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    percent,
+    index,
+  }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-
-  let ChartState = {
-
-   
-    options: {
-
-      noData: {  
-        text: "Loading...",  
-        align: 'center',  
-        verticalAlign: 'middle',  
-        offsetX: 0,  
-        offsetY: 0,  
-        style: {  
-          color: "#000000",  
-          fontSize: '14px',  
-          fontFamily: "Helvetica"  
-        }  
-      },
-      legend: {
-        show: false
-      },
-
-   
-      chart: {
-        type: 'donut',
-      },
-
-      dataLabels: {
-        style: {
-          colors: ['#FFFFFF', '#FFFFFF', '#000000','#000000'],
-          fontSize: "10px",
-          fontFamily: "DINNeuzeitGrotesk-Light, sans-serif",
-          fontWeight: "bold"
-        },
-        dropShadow: {
-          enabled: false,
-          
-      }
-      },
-
-      colors: ['#0C2A66', '#EE7301', '#007AFF','#0CBEA9']
-
-      
-    },
-
-
-    series: [44, 55, 41, 17, ],
-    labels: ['A', 'B', 'C', 'D']
-  }
-
-  let ChartState1 = {
-          
-    series: [{
-      name: 'PRODUCT A',
-      data: [44, 55, 41]
-    }, 
-    
-  ],
-    options: {
-
-      chart: {
-        type: 'bar',
-        height: "150%",
-        stacked: false,
-        toolbar: {
-          show: false
-        },
-
-       
-
-      plotOptions: {
-        bar: {
-          horizontal: false,
-          // borderRadius: 10
-          },
-         
-        },
-      },
-      
-      xaxis: {
-        type: 'String',
-        categories: ['Male', 'Female', 'Non binary',
-        ],
-        tickPlacement: 'on',
-      },
-
-      yaxis: { 
-        show: false,
-        labels: {
-          show: false,
-         
-      }
-    },
-      dataLabels: {
-        enabled: false,
-       
-      },
-
-      legend: {
-        show:false
-      },
-      fill: {
-        opacity: 10
-      },      
-
-
-   
-    plotOptions: {
-        bar: {
-            distributed: true, // this line is mandatory
-            horizontal: false,
-        },
-    },
-    colors: [ // this array contains different color code for each data
-        "#EE3C86",
-        "#007AFF",
-        "#FF6B00",
-    ],
-
-    },
-  
-   
-    
-  
+    return (
+      <text x={x} y={y} fill="#ffff" textAnchor={x > cx ? "middle" : "middle"}>
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
   };
+
+  const data11 = [
+    { name: "Group A", value: 400, color: "#0C2A66" }, // you may pass a value directly as string  },
+    { name: "Group D", value: 200, color: "#0CBEA9" },
+    { name: "Group B", value: 300, color: "#007AFF" },
+    { name: "Group C", value: 300, color: "#EE7301" },
+  ];
+
+  const data12 = [
+    {
+      name: "Female",
+      uv: 100,
+      color: "#EE3B86",
+    },
+    {
+      name: "Male",
+      uv: 150,
+      color: "#007AFF",
+    },
+
+    {
+      name: "Non binary",
+      uv: 70,
+      color: "#FF6B00",
+    },
+  ];
 
 
 
@@ -497,22 +427,22 @@ const Audience = () => {
               </Col>
 
               <Col lg={10} xl={10} xxl={12}  className="ptx10">
-                {/* <Chart
-                  chartType="PieChart"
-                  width="900px"
-                  height="300px"
-                  data={data3}
-                  options={options3}
-                /> */}
-
-                <Chart
-              options={ChartState.options}
-              series={ChartState.series}
-              type="donut"
-              height="107%"
-              width="100%"
-            />
-
+                <ResponsiveContainer minWidth={250} aspect={1} maxHeight={300}>
+                  <PieChart>
+                    <Pie
+                      data={data11}
+                      label={renderCustomizedLabel}
+                      labelLine={false}
+                      innerRadius={40}
+                      dataKey="value"
+                      isAnimationActive={false}
+                    >
+                      {data11.map((entry, index) => (
+                        <Cell fill={entry.color} key={`cell-${index}`} />
+                      ))}
+                    </Pie>
+                  </PieChart>
+                </ResponsiveContainer>
               </Col>
 
               <Col  lg={4} xxl={1} className="v-line mt-2"></Col>
@@ -585,21 +515,31 @@ const Audience = () => {
               </Col>
 
               <Col md={15} className="pt-5">
-                {/* <MapChart
-                  chartType="ColumnChart"
-                  width="100%"
-                  height="100%"
-                  data={data4}
-                  options={options4}
-                /> */}
+            <ResponsiveContainer minWidth={150} aspect={1} maxHeight={250}>
+                <BarChart
+                  data={data12}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: -35,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    horizontal=""
+                    vertical=""
+                  />
+                  <XAxis dataKey="name" interval={0} />
+                  <YAxis tick={false} />
 
-                <Chart
-              options={ChartState1.options}
-              series={ChartState1.series}
-              type="bar"
-              height="130%"
-              width="100%"
-            />
+                  <Bar dataKey="uv" fill="#82ca9d">
+                    {data12.map((entry, index) => (
+                      <Cell fill={entry.color} key={`cell-${index}`} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
               </Col>
 
               <Col md={9}>

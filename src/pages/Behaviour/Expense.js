@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Row,
-  Col,
-  Card,
-  Button,
-  Select,
-  Image,
-  Divider,
-  Progress,
-} from "antd";
+import { Row, Col, Card, Button, Select, Image, Divider, Progress } from "antd";
 import Rdownload from "../../images/r-download.svg";
 
 import {
@@ -24,9 +15,19 @@ import {
   ArcElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import Chart  from "react-apexcharts";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+} from "recharts";
 
-import { Chart as MapChart }  from "react-google-charts";
+import { Chart as MapChart } from "react-google-charts";
 import Header from "../../components/Header";
 ChartJS.register(
   CategoryScale,
@@ -40,10 +41,8 @@ ChartJS.register(
   ArcElement
 );
 
-
 const Expense = () => {
   const { Option } = Select;
-
 
   const options = {
     responsive: true,
@@ -101,735 +100,579 @@ const Expense = () => {
     defaultColor: "#828282",
   };
 
-  let ChartState = {
-    options: {
-      legend: {
-        show: false
-      },
+ 
 
-      
+  const RADIAN = Math.PI / 180;
+  const renderCustomizedLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    percent,
+    index,
+  }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-      chart: {
-        type: 'donut',
-      },
-      dataLabels: {
-        style: {
-          colors: ['#FFFFFF', '#FFFFFF', '#000000','#000000'],
-          fontSize: "10px",
-          fontFamily: "DINNeuzeitGrotesk-Light, sans-serif",
-          fontWeight: "bold"
-        },
-        dropShadow: {
-          enabled: false,
-          
-      }
-      },
-
-      colors: ['#0C2A66', '#EE7301', '#007AFF','#0CBEA9']
-
-      
-    },
-
-
-    series: [44, 55, 41, 17, ],
-    labels: ['A', 'B', 'C', 'D']
-  }
-
-  let ChartState1 = {
-          
-    series: [{
-      name: 'PRODUCT A',
-      data: [44, 55, 41]
-    }, 
-    
-  ],
-    options: {
-
-      chart: {
-        type: 'bar',
-        height: "150%",
-        stacked: false,
-        toolbar: {
-          show: false
-        },
-
-       
-
-      plotOptions: {
-        bar: {
-          horizontal: false,
-          // borderRadius: 10
-          },
-         
-        },
-      },
-      
-      xaxis: {
-        type: 'String',
-        categories: ['Male', 'Female', 'Non binary',
-        ],
-        tickPlacement: 'on',
-      },
-
-      yaxis: { 
-        show: false,
-        labels: {
-          show: false,
-         
-      }
-    },
-      dataLabels: {
-        enabled: false,
-       
-      },
-
-      legend: {
-        show:false
-      },
-      fill: {
-        opacity: 10
-      },      
-
-
-   
-    plotOptions: {
-        bar: {
-            distributed: true, // this line is mandatory
-            horizontal: false,
-        },
-    },
-    colors: [ // this array contains different color code for each data
-        "#EE3C86",
-        "#007AFF",
-        "#FF6B00",
-    ],
-
-    },
-  
-   
-    
-  
+    return (
+      <text x={x} y={y} fill="#ffff" textAnchor={x > cx ? "middle" : "middle"}>
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
   };
 
-  let ChartState2 = {
-          
-    series: [44, 55, 13, 43, 22],
-    options: {
+  const data11 = [
+    { name: "Group A", value: 400, color: "#0C2A66" }, // you may pass a value directly as string  },
+    { name: "Group D", value: 200, color: "#0CBEA9" },
+    { name: "Group B", value: 300, color: "#007AFF" },
+    { name: "Group C", value: 300, color: "#EE7301" },
+  ];
 
-      legend: {
-        show: false
-      },
-      chart: {
-        type: 'pie',
-      },
-
-      
-
-      dataLabels: {
-        style: {
-          colors: ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
-          fontSize: "10px",
-          fontFamily: "DINNeuzeitGrotesk-Light, sans-serif",
-          fontWeight: "bold"
-        },
-        dropShadow: {
-          enabled: false,
-          
-      }
+  const data12 = [
+    {
+      name: "Female",
+      uv: 100,
+      color: "#EE3B86",
     },
-    
-      labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-      
-      colors: ["#45843C", "#1F744B", "#0C876A", "#4A6D1C", "#4BB03C"],
-
+    {
+      name: "Male",
+      uv: 150,
+      color: "#007AFF",
     },
-  
-  
-  };
+
+    {
+      name: "Non binary",
+      uv: 70,
+      color: "#FF6B00",
+    },
+  ];
+
+  const data13 = [
+    { name: "Group A", value: 400, color: "#45843C" }, // you may pass a value directly as string  },
+    { name: "Group e", value: 300, color: "#4BB03C" },
+    { name: "Group D", value: 200, color: "#1F744B" },
+    { name: "Group B", value: 300, color: "#0C876A" },
+    { name: "Group C", value: 300, color: "#4A6D1C" },
+  ];
 
   return (
     <div>
-      <Header title="Expense"  dropdown={true} />
-
-      {/* <Row>
-
-      <Col md={3} className="pl-1 pt2x">
-          <h6 className=""> Expense </h6>
-        </Col>
-
-          <Col md={2} className="pl-1 pt2x">
-        
-            <Select
-                  defaultValue="Filter"
-                  onChange={handleChange}
-                  className="select-item purple-select uppercase letter-space"
-                >
-                 <Option value="disabled" disabled>
-        Pick Country
-      </Option>
-                  <Option value="jack">Ghana</Option>
-                  <Option value="jackw"> America</Option>
-                  <Option value="jacke"> Russia</Option>
-                  <Option value="jack2"> Ukraine</Option>
-
-                </Select>
-          </Col>
-
-        
-        </Row> */}
-    
-     <div className="grid-size info">
-      <Card >
-        
-            <div className="row-end">
-            
+      <Header title="Expense" dropdown={true} />
+      <div className="grid-size info">
+        <Card>
+          <div className="row-end">
             <p className="mr-auto pt-1 f-16">Spending patterns</p>
 
             <Button shape="round" className="purple-button">
-                 Daily
-                </Button>
-        
+              Daily
+            </Button>
+
             <Button shape="round" className="pink-button ml-2">
-                   Weekly
-                </Button>
+              Weekly
+            </Button>
 
-          
             <Button shape="round" className="pink-button ml-2">
-            Monthly
-                </Button>
+              Monthly
+            </Button>
 
-                <Button shape="round" className="pink-button ml-2">
-            Yearly
-                </Button>
-                </div>
+            <Button shape="round" className="pink-button ml-2">
+              Yearly
+            </Button>
+          </div>
 
-                
+          <Row className="pt-2">
+            <Col md={24}>
+              <Line options={options} data={data} />
+            </Col>
+          </Row>
+        </Card>
 
-                <Row className="pt-2" >
-                  <Col md={24}>
-                  <Line options={options} data={data}  />
+        <Card
+        // className="pb-25"
+        >
+          <div className="row-end">
+            <li className="f-10 mt-2x">To</li>
 
-                  </Col>
-                </Row>
-
-
-          </Card>
-
-
-          <Card 
-          // className="pb-25" 
-          >
-
-            <div className="row-end">
-            <li className="f-10 mt-2x" >To</li>
-        
             <Select
-                  defaultValue="Present"
-                  onChange={handleChange}
-                  className="select-item ml-2"
-                  size="small"
-                >
-                  <Option value="jack"> last week</Option>
-                </Select>
-          
-                <li className="f-10 mt-2x ml-2">From</li>
+              defaultValue="Present"
+              onChange={handleChange}
+              className="select-item ml-2"
+              size="small"
+            >
+              <Option value="jack"> last week</Option>
+            </Select>
 
+            <li className="f-10 mt-2x ml-2">From</li>
 
-                <Select
-                  defaultValue="Inception"
-                  onChange={handleChange}
-                  className="select-item ml-2"
-                  size="small"
-                >
-                  <Option value="jack"> last week</Option>
-                </Select>
+            <Select
+              defaultValue="Inception"
+              onChange={handleChange}
+              className="select-item ml-2"
+              size="small"
+            >
+              <Option value="jack"> last week</Option>
+            </Select>
+          </div>
 
-                </div>
+          <Row gutter={8} className="pt-10">
+            <Col md={5}>
+              <Image src={Rdownload} preview={false} />
+            </Col>
 
-
-            <Row gutter={8} className="pt-10">
-              <Col md={5}>
-                <Image src={Rdownload} preview={false} />
-              </Col>
-
-              <Col md={14}>
-                <h4>
+            <Col md={14}>
+              <h4>
                 N1,500,053
-                  <span>
-                    <p className="f-12 grey-color">Total spending</p>
-                  </span>
-                </h4>
-              </Col>
+                <span>
+                  <p className="f-12 grey-color">Total spending</p>
+                </span>
+              </h4>
+            </Col>
 
-              <Col md={5}>
-                <Button
-                  size="small"
-                  shape="round"
-                  className="green-button f-10"
-                >
-                  +262
-                </Button>
-              </Col>
+            <Col md={5}>
+              <Button size="small" shape="round" className="green-button f-10">
+                +262
+              </Button>
+            </Col>
 
-              <Divider className="card-divider" />
+            <Divider className="card-divider" />
 
-              <Col md={5}>
-                <Image src={Rdownload} preview={false} />
-              </Col>
+            <Col md={5}>
+              <Image src={Rdownload} preview={false} />
+            </Col>
 
-              <Col md={14}>
-                <h4>
+            <Col md={14}>
+              <h4>
                 N500,344
-                  <span>
-                    <p className="f-12 grey-color">Average Spending</p>
-                  </span>
-                </h4>
-              </Col>
+                <span>
+                  <p className="f-12 grey-color">Average Spending</p>
+                </span>
+              </h4>
+            </Col>
 
-              <Col md={5} className="p ">
-                <Button
-                  size="small"
-                  shape="round"
-                  className="green-button f-10"
-                >
-                  +262
-                </Button>
-              </Col>
+            <Col md={5} className="p ">
+              <Button size="small" shape="round" className="green-button f-10">
+                +262
+              </Button>
+            </Col>
+          </Row>
+        </Card>
 
-            </Row>
+        <Card>
+          <MapChart
+            chartType="GeoChart"
+            width="100%"
+            height="150px"
+            data={data1}
+            options={options1}
+          />
 
-          </Card>
+          <Row gutter={16}>
+            <Col md={12} className="pt-2">
+              {/* <p className="f-14">Location</p> */}
+              <Row>
+                <Col md={24}>
+                  <p className="f-14">Location</p>
+                </Col>
+                <Col md={20}>
+                  <p className="f-12 grey-color">Russia</p>
+                </Col>
 
-         
-          <Card >
-            <MapChart
-              chartType="GeoChart"
-              width="100%"
-              height="150px"
-              data={data1}
-              options={options1}
-            />
+                <Col md={4}>
+                  <p className="f-12 grey-color">94%</p>
+                </Col>
 
-            <Row gutter={16}>
-              <Col md={12} className="pt-2">
-                {/* <p className="f-14">Location</p> */}
-                <Row>
-                  <Col md={24}>
-                    <p className="f-14">Location</p>
-                  </Col>
-                  <Col md={20}>
-                    <p className="f-12 grey-color">Russia</p>
-                  </Col>
+                <Col md={24} className="mtN15 pb-2">
+                  <Progress percent={94} showInfo={false} size="small" />
+                </Col>
 
-                  <Col md={4}>
-                    <p className="f-12 grey-color">94%</p>
-                  </Col>
+                <Col md={20}>
+                  <p className="f-12 grey-color">Ukraine</p>
+                </Col>
 
-                  <Col md={24} className="mtN15 pb-2">
-                    <Progress percent={94} showInfo={false} size="small" />
-                  </Col>
+                <Col md={4}>
+                  <p className="f-12 grey-color">20%</p>
+                </Col>
 
-                  <Col md={20}>
-                    <p className="f-12 grey-color">Ukraine</p>
-                  </Col>
+                <Col md={24} className="mtN15 pb-2">
+                  <Progress percent={20} showInfo={false} size="small" />
+                </Col>
 
-                  <Col md={4}>
-                    <p className="f-12 grey-color">20%</p>
-                  </Col>
+                <Col md={20}>
+                  <p className="f-12 grey-color">Mongolia</p>
+                </Col>
 
-                  <Col md={24} className="mtN15 pb-2">
-                    <Progress percent={20} showInfo={false} size="small" />
-                  </Col>
+                <Col md={4}>
+                  <p className="f-12 grey-color">13%</p>
+                </Col>
 
-                  <Col md={20}>
-                    <p className="f-12 grey-color">Mongolia</p>
-                  </Col>
+                <Col md={24} className="mtN15 pb-2">
+                  <Progress percent={20} showInfo={false} size="small" />
+                </Col>
+              </Row>
+            </Col>
 
-                  <Col md={4}>
-                    <p className="f-12 grey-color">13%</p>
-                  </Col>
+            <Col md={12} className="pt-2">
+              <p className="purple-color pl-35">Country</p>
+              <Row>
+                <Col md={24}></Col>
+                <Col md={20}>
+                  <p className="f-12 grey-color">China</p>
+                </Col>
 
-                  <Col md={24} className="mtN15 pb-2">
-                    <Progress percent={20} showInfo={false} size="small" />
-                  </Col>
-                </Row>
-              </Col>
+                <Col md={4}>
+                  <p className="f-12 grey-color">24%</p>
+                </Col>
 
-              <Col md={12} className="pt-2">
-                <p className="purple-color pl-35">
-                  Country
-                </p>
-                <Row>
-                  <Col md={24}></Col>
-                  <Col md={20}>
-                    <p className="f-12 grey-color">China</p>
-                  </Col>
+                <Col md={24} className="mtN15 pb-2">
+                  <Progress percent={24} showInfo={false} size="small" />
+                </Col>
 
-                  <Col md={4}>
-                    <p className="f-12 grey-color">24%</p>
-                  </Col>
+                <Col md={20}>
+                  <p className="f-12 grey-color">USA</p>
+                </Col>
 
-                  <Col md={24} className="mtN15 pb-2">
-                    <Progress percent={24} showInfo={false} size="small" />
-                  </Col>
+                <Col md={4}>
+                  <p className="f-12 grey-color">20%</p>
+                </Col>
 
-                  <Col md={20}>
-                    <p className="f-12 grey-color">USA</p>
-                  </Col>
+                <Col md={24} className="mtN15 pb-2">
+                  <Progress percent={20} showInfo={false} size="small" />
+                </Col>
 
-                  <Col md={4}>
-                    <p className="f-12 grey-color">20%</p>
-                  </Col>
+                <Col md={20}>
+                  <p className="f-12 grey-color">other</p>
+                </Col>
 
-                  <Col md={24} className="mtN15 pb-2">
-                    <Progress percent={20} showInfo={false} size="small" />
-                  </Col>
+                <Col md={4}>
+                  <p className="f-12 grey-color">37%</p>
+                </Col>
 
-                  <Col md={20}>
-                    <p className="f-12 grey-color">other</p>
-                  </Col>
-
-                  <Col md={4}>
-                    <p className="f-12 grey-color">37%</p>
-                  </Col>
-
-                  <Col md={24} className="mtN15 pb-2">
-                    <Progress percent={37} showInfo={false} size="small" />
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Card>
-    
+                <Col md={24} className="mtN15 pb-2">
+                  <Progress percent={37} showInfo={false} size="small" />
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Card>
       </div>
 
-
-    <div className="grid-col">
+      <div className="grid-col">
         <Card>
-            <Row gutter={32}>
-              <Col md={24}>
-                <p className="f-18">Demography</p>
-              </Col>
+          <Row gutter={32}>
+            <Col md={24}>
+              <p className="f-18">Demography</p>
+            </Col>
 
-              <Col lg={10} xl={10} xxl={12}  className="ptx10">
-                {/* <Chart
-                  chartType="PieChart"
-                  width="900px"
-                  height="300px"
-                  data={data3}
-                  options={options3}
-                /> */}
+            <Col lg={10} xl={10} xxl={12} className="ptx10">
+              <ResponsiveContainer minWidth={250} aspect={1} maxHeight={300}>
+                <PieChart>
+                  <Pie
+                    data={data11}
+                    label={renderCustomizedLabel}
+                    labelLine={false}
+                    innerRadius={40}
+                    dataKey="value"
+                    isAnimationActive={false}
+                  >
+                    {data11.map((entry, index) => (
+                      <Cell fill={entry.color} key={`cell-${index}`} />
+                    ))}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            </Col>
 
-                <Chart
-              options={ChartState.options}
-              series={ChartState.series}
-              type="donut"
-              height="107%"
-              width="100%"
-            />
+            <Col lg={4} xxl={1} className="v-line mt-2"></Col>
 
-              </Col>
+            <Col md={10} xxl={10} className="pt-10 mt-2 pl-2">
+              <Row gutter={8} className="line">
+                <Col md={3}>
+                  <div className="blue-box"></div>
+                </Col>
 
-              <Col  lg={4} xxl={1} className="v-line mt-2"></Col>
+                <Col md={10}>
+                  <p> Below 20</p>
+                </Col>
 
-              <Col md={10} xxl={10} className="pt-10 mt-2 pl-2">
-                <Row gutter={8} className="line">
-                  <Col md={3}>
-                    <div className="blue-box"></div>
-                  </Col>
+                <Col md={6} offset={5}>
+                  <p> 44,341</p>
+                </Col>
+              </Row>
 
-                  <Col md={10}>
-                    <p> Below 20</p>
-                  </Col>
+              <Row gutter={8} className="line pt-2">
+                <Col md={3}>
+                  <div className="orange-box"></div>
+                </Col>
 
-                  <Col md={6} offset={5}>
-                    <p> 44,341</p>
-                  </Col>
-                </Row>
+                <Col md={10}>
+                  <p> 20- 30</p>
+                </Col>
 
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="orange-box"></div>
-                  </Col>
+                <Col md={6} offset={5}>
+                  <p> 50,341</p>
+                </Col>
+              </Row>
 
-                  <Col md={10}>
-                    <p> 20- 30</p>
-                  </Col>
+              <Row gutter={8} className="line pt-2">
+                <Col md={3}>
+                  <div className="green-box"></div>
+                </Col>
 
-                  <Col md={6} offset={5}>
-                    <p> 50,341</p>
-                  </Col>
-                </Row>
+                <Col md={10}>
+                  <p> 31 - 45</p>
+                </Col>
 
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="green-box"></div>
-                  </Col>
+                <Col md={6} offset={5}>
+                  <p> 34,341</p>
+                </Col>
+              </Row>
 
-                  <Col md={10}>
-                    <p> 31 - 45</p>
-                  </Col>
+              <Row gutter={8} className="line pt-2">
+                <Col md={3}>
+                  <div className="dark-box"></div>
+                </Col>
 
-                  <Col md={6} offset={5}>
-                    <p> 34,341</p>
-                  </Col>
-                </Row>
+                <Col md={10}>
+                  <p> 45 - above</p>
+                </Col>
 
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="dark-box"></div>
-                  </Col>
+                <Col md={6} offset={5}>
+                  <p> 34,341</p>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Card>
 
-                  <Col md={10}>
-                    <p> 45 - above</p>
-                  </Col>
+        <Card>
+          <Row gutter={32}>
+            <Col md={24}>
+              <p className="f-18">Gender</p>
+            </Col>
 
-                  <Col md={6} offset={5}>
-                    <p> 34,341</p>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Card>
+            <Col md={15} className="pt-5">
+              <ResponsiveContainer minWidth={150} aspect={1} maxHeight={250}>
+                <BarChart
+                  data={data12}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: -35,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    horizontal=""
+                    vertical=""
+                  />
+                  <XAxis dataKey="name" interval={0} />
+                  <YAxis tick={false} />
 
+                  <Bar dataKey="uv" fill="#82ca9d">
+                    {data12.map((entry, index) => (
+                      <Cell fill={entry.color} key={`cell-${index}`} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </Col>
 
-          <Card>
-            <Row gutter={32}>
-              <Col md={24}>
-                <p className="f-18">Gender</p>
-              </Col>
+            <Col md={9}>
+              <div className="line">
+                <span className="m-end"> %</span>
+              </div>
+              <Row gutter={8} className="line pt-2">
+                <Col md={3}>
+                  <div className="blue-box"></div>
+                </Col>
+                <Col md={10}>
+                  <p> Male</p>
+                </Col>
 
-              <Col md={15} className="pt-5">
-                {/* <MapChart
-                  chartType="ColumnChart"
-                  width="100%"
-                  height="100%"
-                  data={data4}
-                  options={options4}
-                /> */}
+                <Col md={6}>
+                  <p> 50,341</p>
+                </Col>
 
-                <Chart
-              options={ChartState1.options}
-              series={ChartState1.series}
-              type="bar"
-              height="130%"
-              width="100%"
-            />
-              </Col>
+                <Col md={5}>
+                  <p> 33</p>
+                </Col>
+              </Row>
 
-              <Col md={9}>
-                <div className="line">
-                  <span className="m-end"> %</span>
-                </div>
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="blue-box"></div>
-                  </Col>
-                  <Col md={10}>
-                    <p> Male</p>
-                  </Col>
+              <Row gutter={8} className="line pt-2">
+                <Col md={3}>
+                  <div className="female-box"></div>
+                </Col>
 
-                  <Col md={6}>
-                    <p> 50,341</p>
-                  </Col>
+                <Col md={10}>
+                  <p> Female</p>
+                </Col>
 
-                  <Col md={5}>
-                    <p> 33</p>
-                  </Col>
-                </Row>
+                <Col md={6}>
+                  <p> 50,341</p>
+                </Col>
 
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="female-box"></div>
-                  </Col>
+                <Col md={5}>
+                  <p> 33</p>
+                </Col>
+              </Row>
 
-                  <Col md={10}>
-                    <p> Female</p>
-                  </Col>
+              <Row gutter={8} className=" pt-2">
+                <Col md={3}>
+                  <div className="orange-box"></div>
+                </Col>
 
-                  <Col md={6}>
-                    <p> 50,341</p>
-                  </Col>
+                <Col md={10}>
+                  <p> Non-binary</p>
+                </Col>
 
-                  <Col md={5}>
-                    <p> 33</p>
-                  </Col>
-                </Row>
+                <Col md={6}>
+                  <p> 50,341</p>
+                </Col>
 
-                <Row gutter={8} className=" pt-2">
-                  <Col md={3}>
-                    <div className="orange-box"></div>
-                  </Col>
+                <Col md={5}>
+                  <p> 33</p>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Card>
+      </div>
 
-                  <Col md={10}>
-                    <p> Non-binary</p>
-                  </Col>
-
-                  <Col md={6}>
-                    <p> 50,341</p>
-                  </Col>
-
-                  <Col md={5}>
-                    <p> 33</p>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Card>
-    </div>
-
-
-    <div className="grid-size info">
-    <Card className="grid-1" >
-        
-            <div className="row-end">
-            
+      <div className="grid-size info">
+        <Card className="grid-1">
+          <div className="row-end">
             <p className="mr-auto pt-1 f-16">Average spend</p>
 
             <Button shape="round" className="purple-button">
-                 Daily
-                </Button>
-        
+              Daily
+            </Button>
+
             <Button shape="round" className="pink-button ml-2">
-                   Weekly
-                </Button>
+              Weekly
+            </Button>
 
-          
             <Button shape="round" className="pink-button ml-2">
-            Monthly
-                </Button>
+              Monthly
+            </Button>
 
-                <Button shape="round" className="pink-button ml-2">
-            Yearly
-                </Button>
-                </div>
+            <Button shape="round" className="pink-button ml-2">
+              Yearly
+            </Button>
+          </div>
 
-                
+          <Row className="pt-2">
+            <Col md={24}>
+              <Line options={options} data={data} />
+            </Col>
+          </Row>
+        </Card>
 
-                <Row className="pt-2" >
-                  <Col md={24}>
-                  <Line options={options} data={data}  />
+        <Card className="grid-2">
+          <Row>
+            <Col md={24}>
+              <p className="f-18">Categories</p>
+            </Col>
 
-                  </Col>
-                </Row>
+            <Col md={10} className="pt-5">
+              <ResponsiveContainer minWidth={250} aspect={1} maxHeight={500}>
+                <PieChart>
+                  <Pie
+                    data={data13}
+                    label={renderCustomizedLabel}
+                    labelLine={false}
+                    innerRadius={1}
+                    dataKey="value"
+                    isAnimationActive={false}
+                  >
+                    {data13.map((entry, index) => (
+                      <Cell fill={entry.color} key={`cell-${index}`} />
+                    ))}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            </Col>
 
+            <Col md={4} className="v-line mt-2"></Col>
 
-          </Card>
+            {/* <div className="line2"></div> */}
 
+            <Col md={10} className="pt-10  pl-2">
+              <Row gutter={8} className="line">
+                <Col md={3}>
+                  <div className="travelling-box"></div>
+                </Col>
 
-          <Card className="grid-2">
-            <Row>
-              <Col md={24}>
-                <p className="f-18">Categories</p>
-              </Col>
+                <Col md={10}>
+                  <p> Travelling</p>
+                </Col>
 
-              <Col md={10} className="pt-5">
-                {/* <Chart
-                  chartType="PieChart"
-                  width="300px"
-                  height="300px"
-                  data={data6}
-                  options={options6}
-                /> */}
+                <Col md={6} offset={5}>
+                  <p> N44,341</p>
+                </Col>
+              </Row>
 
-                <Chart
-              options={ChartState2.options}
-              series={ChartState2.series}
-              width="120%"
-              type="pie"
+              <Row gutter={8} className="line pt-2">
+                <Col md={3}>
+                  <div className="grocery-box"></div>
+                </Col>
 
-            />
-              </Col>
+                <Col md={10}>
+                  <p>Grocery</p>
+                </Col>
 
-              <Col md={4} className="v-line mt-2"></Col>
+                <Col md={6} offset={5}>
+                  <p> 50,341</p>
+                </Col>
+              </Row>
 
-              {/* <div className="line2"></div> */}
+              <Row gutter={8} className="line pt-2">
+                <Col md={3}>
+                  <div className="clothes-box"></div>
+                </Col>
 
-              <Col md={10} className="pt-10  pl-2">
-                <Row gutter={8} className="line">
-                  <Col md={3}>
-                    <div className="travelling-box"></div>
-                  </Col>
+                <Col md={10}>
+                  <p> Clothes</p>
+                </Col>
 
-                  <Col md={10}>
-                    <p> Travelling</p>
-                  </Col>
+                <Col md={6} offset={5}>
+                  <p> 34,341</p>
+                </Col>
+              </Row>
 
-                  <Col md={6} offset={5}>
-                    <p> N44,341</p>
-                  </Col>
-                </Row>
+              <Row gutter={8} className="line pt-2">
+                <Col md={3}>
+                  <div className="telecommunication-box"></div>
+                </Col>
 
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="grocery-box"></div>
-                  </Col>
+                <Col md={10}>
+                  <p className="f-12"> Telecommunication</p>
+                </Col>
 
-                  <Col md={10}>
-                    <p>Grocery</p>
-                  </Col>
+                <Col md={6} offset={5}>
+                  <p> 34,341</p>
+                </Col>
+              </Row>
 
-                  <Col md={6} offset={5}>
-                    <p> 50,341</p>
-                  </Col>
-                </Row>
+              <Row gutter={8} className=" pt-2">
+                <Col md={3}>
+                  <div className="utility-box"></div>
+                </Col>
 
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="clothes-box"></div>
-                  </Col>
+                <Col md={10}>
+                  <p> Utility</p>
+                </Col>
 
-                  <Col md={10}>
-                    <p> Clothes</p>
-                  </Col>
-
-                  <Col md={6} offset={5}>
-                    <p> 34,341</p>
-                  </Col>
-                </Row>
-
-                <Row gutter={8} className="line pt-2">
-                  <Col md={3}>
-                    <div className="telecommunication-box"></div>
-                  </Col>
-
-                  <Col md={10}>
-                    <p className="f-12"> Telecommunication</p>
-                  </Col>
-
-                  <Col md={6} offset={5}>
-                    <p> 34,341</p>
-                  </Col>
-                </Row>
-
-                <Row gutter={8} className=" pt-2">
-                  <Col md={3}>
-                    <div className="utility-box"></div>
-                  </Col>
-
-                  <Col md={10}>
-                    <p> Utility</p>
-                  </Col>
-
-                  <Col md={6} offset={5}>
-                    <p> 34,341</p>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Card>
-        
-    
+                <Col md={6} offset={5}>
+                  <p> 34,341</p>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Card>
       </div>
-   
-
-   
-
-    
-
-
-
-     
     </div>
   );
 };

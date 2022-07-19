@@ -937,3 +937,63 @@ const Audience = () => {
 };
 
 export default Audience;
+
+
+// useffect for pop up
+
+ // window.onload = function() {
+  //   if(!window.location.hash) {
+  //     window.location = window.location + '#loaded';
+  //     window.location.reload();
+  //   }
+  // }
+
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     let pop_status = localStorage.getItem("pop_status");
+  //     if (!pop_status) {
+  //       setVisible(true);
+  //       localStorage.setItem("pop_status", true);
+  //     }
+
+  //   }, 2500);
+  // }, []);
+
+
+
+  // react google charts
+
+
+  // const data3 = [
+  //   ["Task", "Hours per Day"],
+  //   ["Work", 11],
+  //   ["Eat", 2],
+  //   ["Eats", 2],
+
+  //   ["Sleep", 7], // CSS-style declaration
+  // ];
+
+  // const options3 = {
+  //   pieHole: 0.4,
+  //   is3D: false,
+  //   legend: "none",
+  //   colors: ["#0C2A66", "#EE7301", "#007AFF", "#0CBEA9"],
+  // };
+
+  // const data4 = [
+  //   ["Element", "Density", { role: "style" }],
+  //   ["Female", 8.94, "#EE3C86"], // RGB value
+  //   ["Male", 10.49, "#007AFF"], // English color name
+  //   ["non-binary", 19.3, "#FF6B00"],
+  // ];
+
+  // const options4 = {
+  //   legend: "none",
+  //   height: '120%',
+  //   width: '100%',
+  //   top: 1118,
+  //   left: 48,
+  //   right: 16,
+  //   bottom: 48
+  // }; 
